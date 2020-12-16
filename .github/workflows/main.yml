@@ -16,4 +16,3 @@ jobs:
           heroku_app_name: "kiriakov"
           heroku_email: "sergioibanezmoreno@gmail.com"
           usedocker: true
-          

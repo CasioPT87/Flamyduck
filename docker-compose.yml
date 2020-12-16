@@ -1,5 +1,12 @@
 version: "3"
 services:
+  database:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3307:3306"
+    env_file:
+      - .env/development/database
   web:
     build: .
     volumes:
@@ -9,12 +16,8 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
-
-  database:
-    image: mysql:5.7
-    restart: always
-    ports:
-      - "3307:3306"
-    env_file:
-      - .env/development/database
+    depends_on:
+      - database
+    links:
+      - database
 
