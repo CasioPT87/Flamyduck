@@ -13,9 +13,8 @@ services:
       - .:/usr/src/app
     ports:
       - "3000:3000"
-    env_file:
-      - .env/development/database
-      - .env/development/web
+    environment:
+      MYSQL_HOST: pepito
     depends_on:
       - database
     links:
