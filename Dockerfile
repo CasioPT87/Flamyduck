@@ -21,5 +21,3 @@ COPY . /usr/src/app/
 RUN bin/rails assets:precompile
 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]
-
-# mysql://b31ed888e28e1a:6ab08daf@us-cdbr-east-02.cleardb.com/heroku_41430389b705176?reconnect=true

@@ -8,13 +8,13 @@ services:
     env_file:
       - .env/development/database
   web:
+    env_file:
+      - .env/development/database
     build: .
     volumes:
       - .:/usr/src/app
     ports:
       - "3000:3000"
-    environment:
-      MYSQL_HOST: pepito
     depends_on:
       - database
     links:
