@@ -1,1 +1,2 @@
 MYSQL_HOST=database
+PORT=3000
