@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     # Setup gcloud CLI
-    - name: Set up Goofle Cloud SDK
+    - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@master
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
