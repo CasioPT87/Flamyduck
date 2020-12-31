@@ -74,7 +74,5 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  # config.hosts << "kiriakov.herokuapp.com"
-
-  config.hosts << "kiriakov-run-d4ydrepnqa-ew.a.run.app"
+  config.hosts << "github-action-deploy-d4ydrepnqa-ew.a.run.app"
 end
