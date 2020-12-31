@@ -121,4 +121,5 @@ Rails.application.configure do
   # config.hosts << "kiriakov.herokuapp.com"
 
   config.hosts << "kiriakov-run-d4ydrepnqa-ew.a.run.app"
+  
 end
