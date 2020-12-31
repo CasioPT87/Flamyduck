@@ -11,6 +11,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Cache gems
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+
     # Setup gcloud CLI
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@master
