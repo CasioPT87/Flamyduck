@@ -34,6 +34,6 @@ jobs:
     - name: Deploy
       uses: google-github-actions/deploy-cloudrun@main
       with:
-        image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APPLICATION }}
+        image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APPLICATION }}:${{  github.sha }}
         service: github-action-deploy
         region: europe-west1 
