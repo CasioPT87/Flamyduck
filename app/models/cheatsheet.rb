@@ -1,0 +1,2 @@
+class Cheatsheet < ApplicationRecord
+end

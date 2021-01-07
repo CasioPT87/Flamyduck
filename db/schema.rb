@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_193224) do
+ActiveRecord::Schema.define(version: 2021_01_07_081931) do
+
+  create_table "cheatsheets", charset: "latin1", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "latin1", force: :cascade do |t|
     t.string "name"
