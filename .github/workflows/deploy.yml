@@ -41,7 +41,7 @@ jobs:
           path: coverage
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
-    needs: RSpec
+    needs: rspec-test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
