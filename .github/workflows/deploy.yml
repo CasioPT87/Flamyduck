@@ -19,26 +19,26 @@ jobs:
     #       MYSQL_ROOT_PASSWORD: password
     #     options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
-      - uses: actions/checkout@v2
+      -   uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundler install
-      - name: Create database
-        run: |
-          bundler exec rails db:create RAILS_ENV=test
-          bundler exec rails db:migrate RAILS_ENV=test
-      - name: Run tests
-        run: bundler exec rspec spec
-      - name: Upload coverage results    
-        uses: actions/upload-artifact@master
-        if: always()
-        with:
-          name: coverage-report
-          path: coverage
+      # - name: Install dependencies
+      #   run: |
+      #     gem install bundler
+      #     bundler install
+      # - name: Create database
+      #   run: |
+      #     bundler exec rails db:create RAILS_ENV=test
+      #     bundler exec rails db:migrate RAILS_ENV=test
+      # - name: Run tests
+      #   run: bundler exec rspec spec
+      # - name: Upload coverage results    
+      #   uses: actions/upload-artifact@master
+      #   if: always()
+      #   with:
+      #     name: coverage-report
+      #     path: coverage
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     needs: Rspec
