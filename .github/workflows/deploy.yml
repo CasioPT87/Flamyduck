@@ -28,12 +28,14 @@ jobs:
           gem install bundler
           bundler install
       - name: Create database
+
         env:
           MYSQL_USER: user
           MYSQL_PASSWORD: password
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: password
         run: |
+          database start
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
       - name: Run tests
