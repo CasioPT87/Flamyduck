@@ -25,7 +25,6 @@ jobs:
           ruby-version: 2.7.2
       - name: Install dependencies
         run: |
-          database -h 127.0.0.1 --port 3306 -u root -p password -e 'CREATE DATABASE IF NOT EXISTS test;'
           gem install bundler
           bundler install
       - name: Create database
