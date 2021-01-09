@@ -13,7 +13,7 @@ jobs:
         ports:
           - 3306
         env:
-          MYSQL_USER: user
+          MYSQL_USER: root
           MYSQL_PASSWORD: password
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: password
@@ -25,7 +25,7 @@ jobs:
           ruby-version: 2.7.2
       - name: Install dependencies
         run: |
-          mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test;'
+          database -h 127.0.0.1 --port 3306 -u root -p password -e 'CREATE DATABASE IF NOT EXISTS test;'
           gem install bundler
           bundler install
       - name: Create database
