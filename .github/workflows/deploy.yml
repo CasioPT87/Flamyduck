@@ -39,7 +39,7 @@ jobs:
       - name: Create database
         env:
           MYSQL_USER: root
-          MYSQL_PASSWORD: password
+          MYSQL_PASSWORD: root
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: root
         run: |
