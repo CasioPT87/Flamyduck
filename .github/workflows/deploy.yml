@@ -35,7 +35,6 @@ jobs:
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: password
         run: |
-          sudo service database start
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
       - name: Run tests
