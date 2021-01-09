@@ -25,7 +25,7 @@ jobs:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-           ${{ runner.os }}-gems-   
+            ${{ runner.os }}-gems-   
 
       - name: Install dependencies
         run: |
@@ -43,7 +43,6 @@ jobs:
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: root
         run: |
-          mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test';
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
       - name: Run tests
