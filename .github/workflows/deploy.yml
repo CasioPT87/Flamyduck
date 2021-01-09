@@ -13,7 +13,7 @@ jobs:
         ports:
           - 3306
         env:
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: root
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 30
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
           MYSQL_USER: root
           MYSQL_PASSWORD: password
           MYSQL_DATABASE: test
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: root
         run: |
           mysql -h 127.0.0.1 --port 3306 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS test';
           bundler exec rails db:create RAILS_ENV=test
