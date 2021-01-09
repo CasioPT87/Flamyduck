@@ -42,6 +42,9 @@ jobs:
           MYSQL_PASSWORD: root
           MYSQL_DATABASE: test
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_HOST: 127.0.0.1
+          # tell Rails to use proper port for MySQL
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}  
         run: |
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
