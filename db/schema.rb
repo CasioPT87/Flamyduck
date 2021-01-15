@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_081931) do
+ActiveRecord::Schema.define(version: 2021_01_15_073632) do
+
+  create_table "cases", charset: "latin1", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cheatsheet_id", null: false
+    t.index ["cheatsheet_id"], name: "index_cases_on_cheatsheet_id"
+  end
 
   create_table "cheatsheets", charset: "latin1", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id"], name: "index_cheatsheets_on_group_id"
+  end
+
+  create_table "groups", charset: "latin1", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,4 +39,6 @@ ActiveRecord::Schema.define(version: 2021_01_07_081931) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cases", "cheatsheets"
+  add_foreign_key "cheatsheets", "groups"
 end
