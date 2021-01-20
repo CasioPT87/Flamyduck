@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_01_20_081600) do
   end
 
   create_table "cheatsheets", charset: "latin1", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "group_id", null: false
