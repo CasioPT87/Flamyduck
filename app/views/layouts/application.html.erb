@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render "/layouts/top_bar" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
