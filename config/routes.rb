@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   scope module: 'logged' do
     resources :cheatsheets, only: [:index, :new, :create, :show]
+    resources :groups, only: [:index, :new, :create, :show]
   end
 
   resources :users, only: [:new, :create]
