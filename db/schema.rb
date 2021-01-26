@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_081600) do
+ActiveRecord::Schema.define(version: 2021_01_26_154154) do
 
   create_table "cases", charset: "utf8mb4", force: :cascade do |t|
     t.text "description"
@@ -24,14 +24,24 @@ ActiveRecord::Schema.define(version: 2021_01_20_081600) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id"
-    t.index ["group_id"], name: "index_cheatsheets_on_group_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cheatsheets_on_user_id"
   end
 
   create_table "groups", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "creator_type"
+    t.bigint "creator_id"
+    t.index ["creator_type", "creator_id"], name: "index_groups_on_creator"
+  end
+
+  create_table "groups_users", id: false, charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -42,5 +52,5 @@ ActiveRecord::Schema.define(version: 2021_01_20_081600) do
   end
 
   add_foreign_key "cases", "cheatsheets"
-  add_foreign_key "cheatsheets", "groups"
+  add_foreign_key "cheatsheets", "users"
 end

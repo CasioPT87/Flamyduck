@@ -10,6 +10,7 @@ class Logged::CheatsheetsController < ApplicationController
 
   def create
     @cheatsheet = Cheatsheet.new(cheatsheet_params)
+    @cheatsheet.user = current_user
     if @cheatsheet.save
       redirect_to @cheatsheet
     else

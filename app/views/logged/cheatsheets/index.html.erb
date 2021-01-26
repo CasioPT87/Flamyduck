@@ -1,5 +1,9 @@
-list of cheatsheets
+
+<% @cheatsheets.each do |cheatsheet| %>
+  <div><%= cheatsheet.name %></div>
+<% end %>
 
 
 <%= button_to "Create Cheatsheet", '/cheatsheets/new', method: :get%>
+
 

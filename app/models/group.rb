@@ -1,5 +1,7 @@
 class Group < ApplicationRecord
-  has_many :cheatsheets
+  
+  belongs_to :creator, polymorphic: true
+  has_and_belongs_to_many :users
 
   validates :name, presence: true
   validates_length_of :name, minimum: 3, maximum: 20, allow_blank: false
