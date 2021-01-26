@@ -2,8 +2,9 @@
   <img src="https://people.eecs.berkeley.edu/~job/Classes/CS184/Spring-2015-Slides/06-RayTracing.key/Data/a-small-215.png" />
   <div class="login_buttons">
     <% if logged_in? %>
-        <p>Logged In as <%= current_user.name %></p>
-        <%= button_to "Logout", '/logout', method: :delete%>
+      <%= button_to "Cheatsheets", '/cheatsheets', method: :get%>
+      <p>Logged as <%= current_user.name %></p>
+      <%= button_to "Logout", '/logout', method: :delete%>
     <%else%>
       <%= button_to "Login", '/login', method: :get%>
       <%= button_to "Sign Up", '/users/new', method: :get%>
