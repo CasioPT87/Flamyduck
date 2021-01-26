@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  get 'welcome', to: 'sessions#welcome'
+  delete 'logout', to: 'sessions#destroy'
 
 end

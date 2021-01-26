@@ -3,7 +3,7 @@
   <div class="login_buttons">
     <% if logged_in? %>
         <p>Logged In as <%= current_user.name %></p>
-        <%= button_to "Logout", '/logout', method: :get%>
+        <%= button_to "Logout", '/logout', method: :delete%>
     <%else%>
       <%= button_to "Login", '/login', method: :get%>
       <%= button_to "Sign Up", '/users/new', method: :get%>
