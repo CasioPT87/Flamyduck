@@ -9,13 +9,16 @@ class Logged::CheatsheetsController < ApplicationController
   end
 
   def create
-    byebug
     @cheatsheet = Cheatsheet.new(cheatsheet_params)
     if @cheatsheet.save
-      render @cheatsheet
+      redirect_to @cheatsheet
     else
       render 'new'
     end
+  end
+
+  def show
+    @cheatsheet = Cheatsheet.find(params[:id])
   end
 
   private

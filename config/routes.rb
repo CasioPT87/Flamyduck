@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'sessions/login'
 
   scope module: 'logged' do
-    resources :cheatsheets, only: [:index, :new, :create]
+    resources :cheatsheets, only: [:index, :new, :create, :show]
   end
 
   resources :users, only: [:new, :create]

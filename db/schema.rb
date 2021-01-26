@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_01_20_081600) do
 
-  create_table "cases", charset: "latin1", force: :cascade do |t|
+  create_table "cases", charset: "utf8mb4", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -20,21 +20,21 @@ ActiveRecord::Schema.define(version: 2021_01_20_081600) do
     t.index ["cheatsheet_id"], name: "index_cases_on_cheatsheet_id"
   end
 
-  create_table "cheatsheets", charset: "latin1", force: :cascade do |t|
+  create_table "cheatsheets", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id", null: false
+    t.bigint "group_id"
     t.index ["group_id"], name: "index_cheatsheets_on_group_id"
   end
 
-  create_table "groups", charset: "latin1", force: :cascade do |t|
+  create_table "groups", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "latin1", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
