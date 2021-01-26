@@ -1,5 +1,5 @@
 class AddCheatsheetToGroup < ActiveRecord::Migration[6.1]
   def change
-    add_reference :cheatsheets, :group, null: false, foreign_key: true
+    add_reference :cheatsheets, :group, foreign_key: true, null: true, default: null
   end
 end
