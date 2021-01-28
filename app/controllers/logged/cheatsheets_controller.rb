@@ -25,6 +25,6 @@ class Logged::CheatsheetsController < ApplicationController
   private
 
   def cheatsheet_params
-    params.require(:cheatsheet).permit(:name)
+    params.require(:cheatsheet).permit(:name, :description)
   end
 end
