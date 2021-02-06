@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_01_28_074355) do
 
-  create_table "action_text_rich_texts", charset: "utf8mb4", force: :cascade do |t|
+  create_table "action_text_rich_texts", charset: "latin1", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "latin1", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "latin1", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -44,21 +44,13 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "latin1", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "cases", charset: "utf8mb4", force: :cascade do |t|
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cheatsheet_id", null: false
-    t.index ["cheatsheet_id"], name: "index_cases_on_cheatsheet_id"
-  end
-
-  create_table "cheatsheets", charset: "utf8mb4", force: :cascade do |t|
+  create_table "cheatsheets", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -66,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
     t.index ["user_id"], name: "index_cheatsheets_on_user_id"
   end
 
-  create_table "groups", charset: "utf8mb4", force: :cascade do |t|
+  create_table "groups", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -75,14 +67,22 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
     t.index ["creator_type", "creator_id"], name: "index_groups_on_creator"
   end
 
-  create_table "groups_users", id: false, charset: "utf8mb4", force: :cascade do |t|
+  create_table "groups_users", id: false, charset: "latin1", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
     t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
     t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "scenarios", charset: "latin1", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cheatsheet_id", null: false
+    t.index ["cheatsheet_id"], name: "index_scenarios_on_cheatsheet_id"
+  end
+
+  create_table "users", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,6 +91,6 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cases", "cheatsheets"
   add_foreign_key "cheatsheets", "users"
+  add_foreign_key "scenarios", "cheatsheets"
 end
