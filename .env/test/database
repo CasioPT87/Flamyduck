@@ -1,6 +1,0 @@
-MYSQL_DATABASE=app_development
-MYSQL_USER=root
-MYSQL_ROOT_PASSWORD=password
-MYSQL_PASSWORD=password
-MYSQL_HOST=database
-RAILS_MAX_THREADS=5
