@@ -3,4 +3,6 @@ class Cheatsheet < ApplicationRecord
 
   has_many :cases
   belongs_to :user
+
+  validates :name, presence: true
 end
