@@ -24,7 +24,7 @@ class Logged::CheatsheetsController < ApplicationController
     if @cheatsheet.update(cheatsheet_params)
       redirect_to cheatsheet_path(@cheatsheet)
     else
-      render cheatsheet_path(@cheatsheet)
+      redirect_to cheatsheet_path(@cheatsheet)
     end
   end
 
@@ -36,7 +36,7 @@ class Logged::CheatsheetsController < ApplicationController
   private
 
   def cheatsheet_params
-    params.require(:cheatsheet).permit(:name, :description, scenarios_attributes: [:content, :example, :_destroy])
+    params.require(:cheatsheet).permit(:name, :description, scenarios_attributes: [:id, :content, :example, :_destroy])
   end
 
   def set_cheatsheet
