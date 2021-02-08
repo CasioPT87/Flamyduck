@@ -25,4 +25,17 @@ RSpec.describe Scenario, type: :model do
     expect(subject.validate).to be(false)
   end
 
+  it 'has a name with empty string' do
+    subject.name = ''
+    subject.validate
+    expect(subject.errors[:name]).to include("can't be blank", "is too short (minimum is 1 character)")
+  end
+
+  it 'has a name with more than 50 characters' do
+    subject.name = ''
+    51.times { subject.name << 'a'}
+    subject.validate
+    expect(subject.errors[:name]).to contain_exactly("is too long (maximum is 50 characters)")
+  end
+
 end

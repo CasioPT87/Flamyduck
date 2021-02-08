@@ -4,6 +4,6 @@ class Group < ApplicationRecord
   has_and_belongs_to_many :users
 
   validates :name, presence: true
-  validates_length_of :name, minimum: 3, maximum: 20, allow_blank: false
+  validates_length_of :name, minimum: 3, maximum: 30, allow_blank: false
   
 end

@@ -23,4 +23,17 @@ RSpec.describe Cheatsheet, type: :model do
     subject.name = nil
     expect(subject.validate).to be(false)
   end
+
+  it 'has a name with empty string' do
+    subject.name = ''
+    subject.validate
+    expect(subject.errors[:name]).to include("can't be blank", "is too short (minimum is 3 characters)")
+  end
+
+  it 'has a name with more than 30 characters' do
+    subject.name = ''
+    31.times { subject.name << 'a'}
+    subject.validate
+    expect(subject.errors[:name]).to contain_exactly("is too long (maximum is 30 characters)")
+  end
 end
