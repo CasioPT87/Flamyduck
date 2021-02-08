@@ -1,5 +1,7 @@
 class Logged::CheatsheetsController < ApplicationController
   before_action :authorized
+  before_action :set_cheatsheet, only: [:update]
+
   def index
     @cheatsheets = Cheatsheet.where(user: current_user)
   end
@@ -18,6 +20,14 @@ class Logged::CheatsheetsController < ApplicationController
     end
   end
 
+  def update
+    if @cheatsheet.update(cheatsheet_params)
+      redirect_to cheatsheet_path(@cheatsheet)
+    else
+      render cheatsheet_path(@cheatsheet)
+    end
+  end
+
   def show
     @cheatsheet = Cheatsheet.find(params[:id])
     @scenarios = Scenario.find_by(cheatsheet: @cheatsheet)
@@ -26,6 +36,10 @@ class Logged::CheatsheetsController < ApplicationController
   private
 
   def cheatsheet_params
-    params.require(:cheatsheet).permit(:name, :description)
+    params.require(:cheatsheet).permit(:name, :description, scenarios_attributes: [:content, :example, :_destroy])
+  end
+
+  def set_cheatsheet
+    @cheatsheet = Cheatsheet.find(params[:id])
   end
 end

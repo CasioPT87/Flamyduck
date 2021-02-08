@@ -2,7 +2,22 @@
 <p> title: <%= @cheatsheet.name %> </p>
 <p> <%= @cheatsheet.description %> </p>
 
-<% @scenarios.each do |scenario| %>
- <div>placeholder</div>
+<%= @cheatsheet.scenarios.each do |scenario| %>
+ <%= scenario.content %>
+ <%= scenario.example %>
 <% end %>
+
+<%= form_with model: @cheatsheet, local: true do |form| %>
+  New Scenario:
+    <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
+      <%= scenario_form.label :content %>
+      <%= scenario_form.text_field :content %>
+      <%= scenario_form.label :example %>
+      <%= scenario_form.rich_text_area :example %>
+
+      <%= scenario_form.submit 'create' %>
+    <% end %>
+<% end %>
+
+
 

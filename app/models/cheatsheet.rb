@@ -1,9 +1,10 @@
 class Cheatsheet < ApplicationRecord
   has_rich_text :description
-
-  has_many :cases
+  has_many :scenarios, inverse_of: 'cheatsheet'
   belongs_to :user
 
   validates :name, presence: true
   validates_length_of :name, minimum: 3, maximum: 30, allow_blank: false
+
+  accepts_nested_attributes_for :scenarios, allow_destroy: true
 end

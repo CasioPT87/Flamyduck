@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   get 'sessions/login'
 
   scope module: 'logged' do
-    resources :cheatsheets, only: [:index, :new, :create, :show]
+    resources :cheatsheets
     resources :groups, only: [:index, :new, :create, :show]
   end
 
   resources :users, only: [:new, :create]
+
+  resources :cheatsheets do
+    resources :scenarios
+  end
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

@@ -1,0 +1,10 @@
+
+<%= debug @scenario%>
+<%= form_with(model: @scenario, local: true) do |form| %>
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+  <%= form.label :example %>
+  <%= form.rich_text_area :example %>
+
+  <%= form.submit "Create" %>
+<% end %>
