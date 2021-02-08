@@ -12,6 +12,11 @@ RSpec.describe Group, type: :model do
       association = described_class.reflect_on_association(:creator)
       expect(association.macro).to eq(:belongs_to)
     end
+
+    it 'has and belong to many users' do
+      association = described_class.reflect_on_association(:users)
+      expect(association.macro).to eq(:has_and_belongs_to_many)
+    end
   end
   
 
