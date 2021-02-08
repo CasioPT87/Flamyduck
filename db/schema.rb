@@ -75,7 +75,8 @@ ActiveRecord::Schema.define(version: 2021_01_28_074355) do
   end
 
   create_table "scenarios", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
+    t.string "content"
+    t.string "example"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cheatsheet_id", null: false
