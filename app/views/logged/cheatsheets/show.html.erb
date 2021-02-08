@@ -2,9 +2,9 @@
 <p> title: <%= @cheatsheet.name %> </p>
 <p> <%= @cheatsheet.description %> </p>
 
-<%= @cheatsheet.scenarios.each do |scenario| %>
+<% @cheatsheet.scenarios.each do |scenario| %>
  <%= scenario.content %>
- <%= scenario.example %>
+ <%= scenario.example.html_safe %>
 <% end %>
 
 <%= form_with model: @cheatsheet, local: true do |form| %>
