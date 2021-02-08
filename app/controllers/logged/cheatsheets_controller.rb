@@ -20,6 +20,7 @@ class Logged::CheatsheetsController < ApplicationController
 
   def show
     @cheatsheet = Cheatsheet.find(params[:id])
+    @scenarios = Scenario.find_by(cheatsheet: @cheatsheet)
   end
 
   private

@@ -1,4 +1,6 @@
 class Scenario < ApplicationRecord
+  has_rich_text :description
+  
   belongs_to :cheatsheet
 
   validates :name, presence: true

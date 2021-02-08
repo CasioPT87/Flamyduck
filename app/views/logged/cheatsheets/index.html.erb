@@ -1,6 +1,6 @@
 
 <% @cheatsheets.each do |cheatsheet| %>
-  <div><%= cheatsheet.name %></div>
+  <div><%= cheatsheet.name %><%= link_to 'link', cheatsheet_path(cheatsheet) %></div>
 <% end %>
 
 
