@@ -76,7 +76,7 @@ h1 {
   padding-top: 20px;
 }
 
-p, .user-name{
+p.user-name {
   position: fixed;
   right: 40px;
 }
