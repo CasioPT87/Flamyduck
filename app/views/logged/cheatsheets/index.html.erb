@@ -6,7 +6,12 @@
   <div class="cheatsheet-index">
     <ul>
       <% @cheatsheets.each do |cheatsheet| %>
-        <li><%= link_to cheatsheet.name, cheatsheet_path(cheatsheet) %></li>
+        <li>
+          <div>
+            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet) %>
+            <%= link_to image_tag('delete-icon.png'), cheatsheet_path(cheatsheet), method: :delete %>
+          </div>
+        </li>
       <% end %>
     </ul>
   </div>
