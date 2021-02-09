@@ -3,7 +3,6 @@
   <div class="buttons">
     <% if logged_in? %>
       <%= button_to "Cheatsheets", '/cheatsheets', method: :get %>
-      <p>Logged as <%= current_user.name %></p>
       <%= button_to "Logout", '/logout', method: :delete %>
     <%else%>
       <%= button_to "Login", '/login', method: :get %>
