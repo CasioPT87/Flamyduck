@@ -1,9 +1,8 @@
-create a new cheatsheet
-
+<h1>create a new cheatsheet</h1>
 
 <%= form_with model: @cheatsheet do |form| %>
-  <%= form.text_field :name %>
-  <%= form.label :description %>
+  <%= form.text_field :name, placeholder: 'Name for your cheatsheet' %>
+  <%= form.label :description, 'Add a description if you want' %>
   <%= form.rich_text_area :description %>
   <%= form.submit %>
 <% end %>

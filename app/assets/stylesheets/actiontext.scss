@@ -34,3 +34,18 @@
     }
   }
 }
+
+trix-toolbar {
+  margin-top: 20px;
+
+  .trix-button--icon {
+    width: 1.6em;
+    height: 1.2em;
+  }
+} 
+
+trix-editor {
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.9em;
+}
