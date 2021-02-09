@@ -1,8 +1,16 @@
+<h1>List of cheatsheets</h1>
 
-<% @cheatsheets.each do |cheatsheet| %>
-  <div><%= cheatsheet.name %><%= link_to 'link', cheatsheet_path(cheatsheet) %></div>
+<% if @cheatsheets.empty? %>
+  <p>You haven't created any yet</p>
+<% else %>
+  <div class="cheatsheet-index">
+    <ul>
+      <% @cheatsheets.each do |cheatsheet| %>
+        <li><%= link_to cheatsheet.name, cheatsheet_path(cheatsheet) %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
-
 
 <%= button_to "Create New", '/cheatsheets/new', method: :get%>
 
