@@ -1,13 +1,13 @@
-<div class="top_bar">
+<div class="top-bar">
   <%= link_to image_tag('logo.jpg'), "/" %>
-  <div class="login_buttons">
+  <div class="buttons">
     <% if logged_in? %>
-      <%= button_to "Cheatsheets", '/cheatsheets', method: :get%>
+      <%= button_to "Cheatsheets", '/cheatsheets', method: :get %>
       <p>Logged as <%= current_user.name %></p>
-      <%= button_to "Logout", '/logout', method: :delete%>
+      <%= button_to "Logout", '/logout', method: :delete %>
     <%else%>
-      <%= button_to "Login", '/login', method: :get%>
-      <%= button_to "Sign Up", '/users/new', method: :get%>
+      <%= button_to "Login", '/login', method: :get %>
+      <%= button_to "Sign Up", '/users/new', method: :get %>
     <%end%>
   </div>
 </div>
