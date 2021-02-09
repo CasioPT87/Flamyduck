@@ -7,9 +7,10 @@
     <ul>
       <% @cheatsheets.each do |cheatsheet| %>
         <li>
-          <div>
-            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet) %>
-            <%= link_to image_tag('delete-icon.png'), cheatsheet_path(cheatsheet), method: :delete %>
+          <div class="list">
+            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet), class: 'cheatsheet' %>
+            <%# <%= link_to image_tag('delete-icon.png'), cheatsheet_path(cheatsheet), method: :delete %>
+            <%= render 'logged/shared/edit/buttons' %>
           </div>
         </li>
       <% end %>

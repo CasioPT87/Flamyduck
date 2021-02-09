@@ -1,0 +1,19 @@
+
+
+<div data-controller="edit-buttons" class="edit-buttons" >
+  <%= link_to image_tag('edit-icon.png'),
+   "/", data: {
+          'edit-buttons-target': 'button'
+       }, class: 'animation'
+  %>
+  <%= link_to image_tag('delete-icon.png'),
+   "/", data: {
+          confirm: "This will delete this cheatsheet. This action can not be undone", 'edit-buttons-target': 'button'
+       }, class: 'animation'
+  %>
+  <%= content_tag :a, content_tag(:div, ""),
+   data: { 
+     action: 'click->edit-buttons#toggle', 'edit-buttons-target': 'button'
+    }, class: 'animation last-button right-arrow'
+  %>
+</div>
