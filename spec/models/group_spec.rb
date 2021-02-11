@@ -19,7 +19,6 @@ RSpec.describe Group, type: :model do
     end
   end
   
-
   it 'is not valid without a name' do
     subject.name = nil
     expect(subject.validate).to be(false)
