@@ -6,5 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: 'sergio', password: 'no')
-User.create(name: 'jenny', password: 'no')
+user_1 = User.create(name: 'sergio', password: 'Password80')
+User.create(name: 'jenny', password: 'Password80')
+
+Cheatsheet.create(name: 'my cheatsheet', user: user_1)
+
+Group.create(name: 'my group', creator: user_1)
+
+
