@@ -1,10 +1,12 @@
 <h1>Choose a group or create a new one</h1>
 
+<%= button_to "Create New Group", '/groups/new', method: :get%>
+
 <% if @groups.empty? %>
   <p>You haven't created any yet</p>
 <% else %>
   <div class="group-index">
-    <%= form_with model: Group.new, method: :get do |form| %>
+    <%= form_with model: Group.new, method: :get, local: true do |form| %>
       <%= form.collection_select(:id, @groups, :id, :name, {:prompt => true, :multiple => false }, {:onchange => 'this.form.submit()' }) %>
     <% end %>
   </div>
@@ -12,11 +14,14 @@
 
 <% if @group %>
   <%= @group.name %>
-  <%= form_with model: @group, url: '/' do |form| %>
-    <%= form.collection_check_boxes(:cheatsheet, :cheatsheet_id, @group.cheatsheets, :id, :name) %>
+  <% if @cheatsheets.any? %>
+    <%= form_with model: @group, method: :patch, local: true do |form| %>
+      <%= collection_check_boxes(:group, :cheatsheet_ids, @cheatsheets, :id, :name) %>
+      <%= form.submit "Update cheatsheets for Group" %>
+    <% end %>
+  <% else %>
+    <p>You haven't created any cheatsheet yet</p>
   <% end %>
 <% end %>
-
-<%= button_to "Create New", '/groups/new', method: :get%>
 
 
