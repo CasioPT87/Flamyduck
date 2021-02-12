@@ -23,16 +23,15 @@ class Logged::GroupsController < ApplicationController
   def update
     if group_params[:cheatsheet_ids]
       if @group.cheatsheet_ids = group_params[:cheatsheet_ids]
-        debugger
-        redirect_to groups_path(@group) and return
+        redirect_to group_path(@group) and return
       else
-        redirect_to groups_path(@group) and return
+        redirect_to group_path(@group) and return
       end
     else
       if @group.update(group_params)
-        redirect_to groups_path(@group) and return
+        redirect_to group_path(@group) and return
       else
-        redirect_to groups_path(@group) and return
+        redirect_to group_path(@group) and return
       end
     end
   end
