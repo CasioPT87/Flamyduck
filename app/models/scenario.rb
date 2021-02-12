@@ -1,5 +1,5 @@
 class Scenario < ApplicationRecord
-  has_rich_text :description
+  has_rich_text :example
   
   belongs_to :cheatsheet
 

@@ -47,7 +47,7 @@ class Logged::CheatsheetsController < ApplicationController
   private
 
   def cheatsheet_params
-    params.require(:cheatsheet).permit(:name, :description, scenarios_attributes: [:id, :content, :example, :_destroy])
+    params.require(:cheatsheet).permit(:name, scenarios_attributes: [:id, :content, :example, :_destroy])
   end
 
   def set_cheatsheet

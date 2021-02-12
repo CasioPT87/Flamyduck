@@ -9,8 +9,10 @@
 user_1 = User.create(name: 'sergio', password: 'Password80')
 User.create(name: 'jenny', password: 'Password80')
 
-Cheatsheet.create(name: 'my cheatsheet', user: user_1)
+g_1 = Group.create(name: 'my group', creator: user_1)
+c_1 = Cheatsheet.create(name: 'my cheatsheet 1', user: user_1)
+c_2 = Cheatsheet.create(name: 'my cheatsheet 2', user: user_1)
 
-Group.create(name: 'my group', creator: user_1)
+c_1.groups = [g_1]
 
 
