@@ -10,8 +10,11 @@
       <% @groups.each do |group| %>
         <li>
           <div class="list">
-            <%= link_to group.name, group_path(group), class: 'group' %>
-            <%= render 'logged/shared/edit/buttons', locals: { object: group } %>
+            <%= link_to group.name, edit_group_path(group), class: 'group' %>
+            <%= render 'logged/shared/edit/buttons', locals: {
+              object: group,
+              edit_path: edit_group_path(group),
+              delete_path: group_path(group) } %>
           </div>
         </li>
       <% end %>

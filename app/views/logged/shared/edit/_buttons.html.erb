@@ -1,12 +1,13 @@
 
 <div data-controller="edit-buttons" class="edit-buttons" >
-  <%= link_to image_tag('edit-icon.png'), "/",
+  <%= link_to image_tag('edit-icon.png'),
+    locals[:edit_path],
     data: {
      'edit-buttons-target': 'button'
     }, class: 'animation'
   %>
   <%= link_to image_tag('delete-icon.png'), 
-    cheatsheet_path(locals[:object]), method: :delete, data: {
+    locals[:delete_path], method: :delete, data: {
       confirm: "This will delete this cheatsheet. This action can not be undone", 'edit-buttons-target': 'button'
     }, class: 'animation'
   %>

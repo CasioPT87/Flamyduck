@@ -20,6 +20,10 @@ class Logged::GroupsController < ApplicationController
     end
   end
 
+  def show
+    @cheatsheets = available_cheatsheets
+  end
+
   def update
     if group_params[:cheatsheet_ids]
       if @group.cheatsheet_ids = group_params[:cheatsheet_ids]
@@ -47,10 +51,9 @@ class Logged::GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
-    set_available_cheatsheets
   end
 
-  def set_available_cheatsheets
-    @cheatsheets = Cheatsheet.where(user: current_user)
+  def available_cheatsheets
+    Cheatsheet.where(user: current_user)
   end
 end
