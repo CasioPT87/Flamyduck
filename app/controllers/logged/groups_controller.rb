@@ -1,6 +1,6 @@
 class Logged::GroupsController < ApplicationController
 
-  before_action :set_group, only: [:show, :update]
+  before_action :set_group, only: [:show, :update, :edit]
 
   def index
     @groups = Group.where(creator: current_user)
@@ -8,6 +8,10 @@ class Logged::GroupsController < ApplicationController
 
   def new
     @group = Group.new
+  end
+
+  def edit
+    @cheatsheets = available_cheatsheets
   end
 
   def create
@@ -18,10 +22,6 @@ class Logged::GroupsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    @cheatsheets = available_cheatsheets
   end
 
   def update
