@@ -1,6 +1,6 @@
 class Logged::CheatsheetsController < ApplicationController
   before_action :authorized
-  before_action :set_cheatsheet, only: [:update, :destroy]
+  before_action :set_cheatsheet, only: [:update, :destroy, :edit]
 
   def index
     @cheatsheets = Cheatsheet.where(user: current_user)
@@ -10,11 +10,14 @@ class Logged::CheatsheetsController < ApplicationController
     @cheatsheet = Cheatsheet.new
   end
 
+  def edit
+  end
+
   def create
     @cheatsheet = Cheatsheet.new(cheatsheet_params)
     @cheatsheet.user = current_user
     if @cheatsheet.save
-      redirect_to @cheatsheet
+      redirect_to cheatsheets_path
     else
       render 'new'
     end
@@ -22,9 +25,9 @@ class Logged::CheatsheetsController < ApplicationController
 
   def update
     if @cheatsheet.update(cheatsheet_params)
-      redirect_to cheatsheet_path(@cheatsheet)
+      redirect_to cheatsheets_path
     else
-      redirect_to cheatsheet_path(@cheatsheet)
+      redirect_to cheatsheets_path
     end
   end
 

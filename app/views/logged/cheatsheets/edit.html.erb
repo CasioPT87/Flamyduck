@@ -1,0 +1,12 @@
+
+<h1>Edit Cheatsheet</h1>
+
+
+<%= form_with model: @cheatsheet, method: :patch, local: true do |form| %>
+
+  <h5>Edit name</h5>
+  <%= form.text_field :name %>
+
+  <%= form.submit "Update Cheatsheet" %>
+<% end %>
+
