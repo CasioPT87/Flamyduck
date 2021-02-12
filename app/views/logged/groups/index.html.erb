@@ -6,22 +6,19 @@
   <p>You haven't created any yet</p>
 <% else %>
   <div class="group-index">
-    <%= form_with model: Group.new, method: :get, local: true do |form| %>
-      <%= form.collection_select(:id, @groups, :id, :name, {:prompt => true, :multiple => false }, {:onchange => 'this.form.submit()' }) %>
-    <% end %>
+    <ul>
+      <% @groups.each do |group| %>
+        <li>
+          <div class="list">
+            <%= link_to group.name, group_path(group), class: 'group' %>
+            <%= render 'logged/shared/edit/buttons', locals: { object: group } %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
 
-<% if @group %>
-  <%= @group.name %>
-  <% if @cheatsheets.any? %>
-    <%= form_with model: @group, method: :patch, local: true do |form| %>
-      <%= collection_check_boxes(:group, :cheatsheet_ids, @cheatsheets, :id, :name) %>
-      <%= form.submit "Update cheatsheets for Group" %>
-    <% end %>
-  <% else %>
-    <p>You haven't created any cheatsheet yet</p>
-  <% end %>
-<% end %>
+
 
 

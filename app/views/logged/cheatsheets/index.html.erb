@@ -1,5 +1,7 @@
 <h1>List of cheatsheets</h1>
 
+<%= button_to "Create New", '/cheatsheets/new', method: :get%>
+
 <% if @cheatsheets.empty? %>
   <p>You haven't created any yet</p>
 <% else %>
@@ -17,7 +19,5 @@
     </ul>
   </div>
 <% end %>
-
-<%= button_to "Create New", '/cheatsheets/new', method: :get%>
 
 
