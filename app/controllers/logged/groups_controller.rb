@@ -1,6 +1,6 @@
 class Logged::GroupsController < ApplicationController
 
-  before_action :set_group, only: [:show, :update, :edit]
+  before_action :set_group, only: [:show, :update, :edit, :destroy]
 
   def index
     @groups = Group.where(creator: current_user)
@@ -31,6 +31,11 @@ class Logged::GroupsController < ApplicationController
   end
 
   def destroy
+    if @group.destroy
+      redirect_to groups_path
+    else
+      redirect_to groups_path
+    end
   end
 
   private

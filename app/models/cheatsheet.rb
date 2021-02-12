@@ -9,7 +9,4 @@ class Cheatsheet < ApplicationRecord
 
   accepts_nested_attributes_for :scenarios, allow_destroy: true
 
-  def self.available_collection
-    Cheatsheet.find_by(user: current_user)
-  end
 end
