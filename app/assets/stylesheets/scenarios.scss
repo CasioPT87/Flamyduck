@@ -6,6 +6,13 @@
   max-width: 500px;
   margin: 0 20px 0 0;
 
+  &:hover {
+    .edit {
+      display: flex;
+    }
+  }
+
+
   .data {
     display: flex;
     flex-direction: column;
@@ -26,12 +33,17 @@
   }
 
   .edit {
-    display: flex;
+    display: none;
     flex-direction: column;
 
     input[type="image"], img {
       margin: 30px 0 0 10px;
       height: 30px;
+      cursor: pointer;
+    }
+
+    img {
+      cursor: grab
     }
   }
 }

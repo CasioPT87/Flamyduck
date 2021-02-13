@@ -1,6 +1,10 @@
 
 <h1><%= @cheatsheet.name %></h1>
 
+<% if @cheatsheet.scenarios.empty? %>
+  <h3>You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
+<% end %>
+
 <% @cheatsheet.scenarios.each do |scenario| %>
  <%= form_with model: @cheatsheet, local: true do |form| %>
   <%= render 'scenarios/scenario', scenario: scenario do %>
@@ -12,17 +16,20 @@
   <% end %>
 <% end %>
 
-<%= form_with model: @cheatsheet, local: true do |form| %>
-  New Scenario:
-  <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
-    <%= scenario_form.label :content %>
-    <%= scenario_form.text_field :content %>
-    <%= scenario_form.label :example %>
-    <%= scenario_form.rich_text_area :example %>
-
-    <%= scenario_form.submit 'create' %>
-  <% end %>
-<% end %>
+<div data-controller='add-scenario' class='add-scenario'>
+  <div data-add-scenario-target='form' class='form'>
+    <%= form_with model: @cheatsheet, local: true do |form| %>
+      <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
+        <%= scenario_form.text_field :content %>
+        <%= scenario_form.rich_text_area :example %>
+        <%= scenario_form.submit 'create' %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= image_tag 'add-icon.png', data: { 
+     action: 'click->add-scenario#toggle'
+    } %>
+</div>
 
 
 

@@ -4,10 +4,6 @@ export default class extends Controller {
 
   static targets = ["button"];
 
-  connect() {
-    console.log('eoo')
-  }
-
   initialize() {
     this.opened = false;
   }
