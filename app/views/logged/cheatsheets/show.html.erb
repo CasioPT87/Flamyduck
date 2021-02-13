@@ -3,25 +3,25 @@
 
 <% @cheatsheet.scenarios.each do |scenario| %>
  <%= scenario.content %>
- <%= scenario.example.html_safe %>
+ <%= scenario.example %>
  <%= form_with model: @cheatsheet, local: true do |form| %>
-    <%= form.fields_for :scenarios, scenario do |scenario_form| %>
-      <%= scenario_form.hidden_field :_destroy, value: true %>
-      <%= scenario_form.submit 'delete' %>
+  <%= form.fields_for :scenarios, scenario do |scenario_form| %>
+    <%= scenario_form.hidden_field :_destroy, value: true %>
+    <%= scenario_form.submit 'delete' %>
     <% end %>
   <% end %>
 <% end %>
 
 <%= form_with model: @cheatsheet, local: true do |form| %>
   New Scenario:
-    <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
-      <%= scenario_form.label :content %>
-      <%= scenario_form.text_field :content %>
-      <%= scenario_form.label :example %>
-      <%= scenario_form.rich_text_area :example %>
+  <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
+    <%= scenario_form.label :content %>
+    <%= scenario_form.text_field :content %>
+    <%= scenario_form.label :example %>
+    <%= scenario_form.rich_text_area :example %>
 
-      <%= scenario_form.submit 'create' %>
-    <% end %>
+    <%= scenario_form.submit 'create' %>
+  <% end %>
 <% end %>
 
 

@@ -25,9 +25,9 @@ class Logged::CheatsheetsController < ApplicationController
 
   def update
     if @cheatsheet.update(cheatsheet_params)
-      redirect_to cheatsheets_path
+      redirect_to cheatsheet_path(@cheatsheet)
     else
-      redirect_to cheatsheets_path
+      redirect_to cheatsheet_path(@cheatsheet)
     end
   end
 
