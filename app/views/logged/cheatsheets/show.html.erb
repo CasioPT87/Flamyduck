@@ -1,13 +1,13 @@
 
-<p> title: <%= @cheatsheet.name %> </p>
+<h1><%= @cheatsheet.name %></h1>
 
 <% @cheatsheet.scenarios.each do |scenario| %>
- <%= scenario.content %>
- <%= scenario.example %>
  <%= form_with model: @cheatsheet, local: true do |form| %>
+  <%= render 'scenarios/scenario', scenario: scenario do %>
+    <%= image_submit_tag("delete-icon.png") %>
+  <% end %>
   <%= form.fields_for :scenarios, scenario do |scenario_form| %>
     <%= scenario_form.hidden_field :_destroy, value: true %>
-    <%= scenario_form.submit 'delete' %>
     <% end %>
   <% end %>
 <% end %>

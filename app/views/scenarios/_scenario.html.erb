@@ -1,0 +1,12 @@
+
+<div class='scenario'>
+  <div class='data'>
+    <div class='content'>
+       <%= local_assigns[:scenario].content %>
+    </div> 
+    <% unless local_assigns[:scenario].example.empty? %>  
+      <%= local_assigns[:scenario].example %>
+    <% end %>
+  </div>
+  <%= yield %>
+</div>
