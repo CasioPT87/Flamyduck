@@ -1,6 +1,6 @@
 class Logged::CheatsheetsController < ApplicationController
   before_action :authorized
-  before_action :set_cheatsheet, only: [:update, :destroy, :edit]
+  before_action :set_cheatsheet, only: [:update, :destroy, :edit, :show]
 
   def index
     @cheatsheets = Cheatsheet.where(user: current_user)
@@ -24,16 +24,21 @@ class Logged::CheatsheetsController < ApplicationController
   end
 
   def update
+    @group = get_group
     if @cheatsheet.update(cheatsheet_params)
-      redirect_to cheatsheet_path(@cheatsheet)
+      if @group
+        redirect_to group_cheatsheet(@group, @cheatsheet)
+      else
+        redirect_to cheatsheet_path(@group, @cheatsheet)
+      end
     else
       redirect_to cheatsheet_path(@cheatsheet)
     end
   end
 
   def show
-    @cheatsheet = Cheatsheet.find(params[:id])
     @scenarios = Scenario.find_by(cheatsheet: @cheatsheet)
+    @group = get_group
   end
 
   def destroy
@@ -52,5 +57,11 @@ class Logged::CheatsheetsController < ApplicationController
 
   def set_cheatsheet
     @cheatsheet = Cheatsheet.find(params[:id])
+  end
+
+  def get_group
+    if params[:group_id]
+      Group.find(params[:group_id])
+    end
   end
 end

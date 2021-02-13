@@ -10,7 +10,11 @@
       <% @groups.each do |group| %>
         <li>
           <div class="list">
-            <%= link_to group.name, edit_group_path(group), class: 'group' %>
+            <% if group.cheatsheets.empty? %>
+              <%= link_to group.name, '#', class: 'group' %>
+            <% else%>
+              <%= link_to group.name, [group, group.cheatsheets.first], class: 'group' %>
+            <% end%>
             <%= render 'logged/shared/edit/buttons', locals: {
               object: group,
               edit_path: edit_group_path(group),

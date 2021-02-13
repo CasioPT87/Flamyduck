@@ -1,4 +1,16 @@
 
+<% if @group %>
+  <nav>
+    <ul>
+      <% @group.cheatsheets.each do |cheatsheet| %>
+        <li>
+          <%= link_to cheatsheet.name, [@group, cheatsheet]%>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>
+
 <h1><%= @cheatsheet.name %></h1>
 
 <% if @cheatsheet.scenarios.empty? %>
