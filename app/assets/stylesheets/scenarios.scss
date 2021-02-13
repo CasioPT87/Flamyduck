@@ -15,18 +15,23 @@
     padding: 20px;
     margin-top: 20px;
     background-color: white;
+
+    .trix-content {
+      border: 0;
+      border-radius: 0 0 5px 5px;
+      padding: 20px;
+      background-color: rgb(241, 241, 241);
+      margin-top: 15px;
+    }
   }
 
-  input[type="image"] {
-    margin: 30px 0 0 10px;
-    height: 30px;
-  }
+  .edit {
+    display: flex;
+    flex-direction: column;
 
-  .trix-content {
-    border: 0;
-    border-radius: 0 0 5px 5px;
-    padding: 20px;
-    background-color: rgb(241, 241, 241);
-    margin-top: 15px;
+    input[type="image"], img {
+      margin: 30px 0 0 10px;
+      height: 30px;
+    }
   }
 }
