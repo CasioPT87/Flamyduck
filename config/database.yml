@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV.fetch("MYSQL_DATABASE") %>
-  username: <%= ENV.fetch("MYSQL_USER") %>
-  password: <%= ENV.fetch("MYSQL_PASSWORD") %>
+  database: <%= ENV["MYSQL_DATABASE"] %>
+  username: <%= ENV["MYSQL_USER"] %>
+  password: <%= ENV["MYSQL_PASSWORD"] %>

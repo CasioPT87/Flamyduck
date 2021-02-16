@@ -43,6 +43,7 @@ jobs:
           MYSQL_DATABASE_TEST: app_test
           MYSQL_ROOT_PASSWORD: root
           MYSQL_HOST: 127.0.0.1
+          RAILS_ENV: test
           # tell Rails to use proper port for MySQL
           DB_PORT: ${{ job.services.mysql.ports[3306] }}  
         run: |
@@ -56,6 +57,7 @@ jobs:
           MYSQL_DATABASE_TEST: app_test
           MYSQL_ROOT_PASSWORD: root
           MYSQL_HOST: 127.0.0.1
+          RAILS_ENV: test
           # tell Rails to use proper port for MySQL
           DB_PORT: ${{ job.services.mysql.ports[3306] }}  
         run: RAILS_ENV=test bundler exec rspec spec
