@@ -40,7 +40,7 @@ jobs:
         env:
           MYSQL_USER: root
           MYSQL_PASSWORD: root
-          MYSQL_DATABASE_TEST: test
+          MYSQL_DATABASE_TEST: app_test
           MYSQL_ROOT_PASSWORD: root
           MYSQL_HOST: 127.0.0.1
           # tell Rails to use proper port for MySQL
@@ -53,7 +53,7 @@ jobs:
         env:
           MYSQL_USER: root
           MYSQL_PASSWORD: root
-          MYSQL_DATABASE_TEST: test
+          MYSQL_DATABASE_TEST: app_test
           MYSQL_ROOT_PASSWORD: root
           MYSQL_HOST: 127.0.0.1
           # tell Rails to use proper port for MySQL
