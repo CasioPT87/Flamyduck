@@ -20,4 +20,11 @@ COPY . /usr/src/app/
 
 RUN bin/rails assets:precompile
 
-CMD ["bin/rails", "s", "-b", "0.0.0.0"]
+# Redirect Rails log to STDOUT for Cloud Run to capture
+ENV RAILS_LOG_TO_STDOUT=true
+
+# Designate the initial sript to run on container startup
+RUN chmod +x /usr/src/app/entrypoint.sh
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+
+# CMD ["bin/rails", "s", "-b", "0.0.0.0"]
