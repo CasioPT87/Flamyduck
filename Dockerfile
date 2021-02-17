@@ -23,8 +23,10 @@ RUN bin/rails assets:precompile
 # Redirect Rails log to STDOUT for Cloud Run to capture
 ENV RAILS_LOG_TO_STDOUT=true
 
-# Designate the initial sript to run on container startup
-RUN chmod +x /usr/src/app/entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+RUN RAILS_ENV=production bundle exec rake db:create
 
-# CMD ["bin/rails", "s", "-b", "0.0.0.0"]
+# Make sure we are using the most up to date
+# database schema
+RUN RAILS_ENV=production bundle exec rake db:migrate
+
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
