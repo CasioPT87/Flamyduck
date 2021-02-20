@@ -1,7 +1,5 @@
 FROM ruby:2.7.2
 
-LABEL maintainer=sergioibanezmoreno@gmail.com
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
