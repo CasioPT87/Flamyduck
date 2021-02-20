@@ -24,6 +24,7 @@ export default class extends Controller {
   }
 
   drop(event) {
+    
     var data = event.dataTransfer.getData("application/drag-key")
     const dropTarget = event.target
     const draggedItem = this.element.querySelector(`[data-sort-id='${data}']`);
