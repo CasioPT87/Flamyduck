@@ -98,7 +98,7 @@ jobs:
     # Build the Docker image
     - name: Build & Publish
       env: 
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_PRODUCTION_KEY }}
+        RAILS_PRODUCTION_KEY: ${{ secrets.RAILS_PRODUCTION_KEY }}
       run: |
         docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APPLICATION }}:${{  github.sha }} .
         docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_APPLICATION }}:${{  github.sha }}
