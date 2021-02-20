@@ -23,10 +23,10 @@ RUN bin/rails assets:precompile
 # Redirect Rails log to STDOUT for Cloud Run to capture
 ENV RAILS_LOG_TO_STDOUT=true
 
-RUN RAILS_ENV=production bundle exec rake db:create
+RUN RAILS_ENV=production RAILS_MASTER_KEY=$RAILS_MASTER_KEY bundle exec rake db:create
 
 # Make sure we are using the most up to date
 # database schema
-RUN RAILS_ENV=production bundle exec rake db:migrate
+RUN RAILS_ENV=production RAILS_MASTER_KEY=$RAILS_MASTER_KEY bundle exec rake db:migrate
 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]
