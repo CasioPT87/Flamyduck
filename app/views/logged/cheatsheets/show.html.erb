@@ -17,16 +17,20 @@
   <h3>You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
 <% end %>
 
-<% @cheatsheet.scenarios.each do |scenario| %>
- <%= form_with model: @cheatsheet, local: true do |form| %>
-  <%= render 'scenarios/scenario', scenario: scenario do %>
-    <%= image_submit_tag("delete-icon.png") %>
+<div data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter drop->drag-item#drop dragend->drag-item#dragend">
+  <% @cheatsheet.scenarios.each do |scenario| %>
+    <div class="droppable" draggable="true" data-sort-id="1">
+      <%= form_with model: @cheatsheet, local: true do |form| %>
+        <%= render 'scenarios/scenario', scenario: scenario do %>
+          <%= image_submit_tag("delete-icon.png") %>
+        <% end %>
+        <%= form.fields_for :scenarios, scenario do |scenario_form| %>
+          <%= scenario_form.hidden_field :_destroy, value: true %>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
-  <%= form.fields_for :scenarios, scenario do |scenario_form| %>
-    <%= scenario_form.hidden_field :_destroy, value: true %>
-    <% end %>
-  <% end %>
-<% end %>
+</div>
 
 <div data-controller='add-scenario' class='add-scenario'>
   <div data-add-scenario-target='form' class='form'>

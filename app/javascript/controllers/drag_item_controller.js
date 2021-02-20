@@ -2,21 +2,25 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
 
-  // static targets = ["button"];
+  // static targets = [];
 
-  connect() {
-    console.log('connected killo!!')
-  }
+  // connect() {
+  // }
 
   dragstart = (event) => {
-    console.log('drag has started!!!')
-    event.dataTransfer.setData("application/drag-key", event.target.getAttribute("data-todo-id"))
+    event.dataTransfer.setData("application/drag-key", event.target.getAttribute("data-sort-id"))
     event.dataTransfer.effectAllowed = "move"
   }
 
   dragover(event) {
-    event.preventDefault()
-    return true
+    const dragElement = event.target;
+    this.dropElement = dragElement.closest(".droppable")
+    if (this.dropElement) {
+      event.preventDefault()
+      return true
+    } else {
+      return false;
+    }
   }
 
   dragenter(event) {
@@ -24,15 +28,14 @@ export default class extends Controller {
   }
 
   drop(event) {
-    
     var data = event.dataTransfer.getData("application/drag-key")
-    const dropTarget = event.target
+    const dropTarget = this.dropElement
     const draggedItem = this.element.querySelector(`[data-sort-id='${data}']`);
     const positionComparison = dropTarget.compareDocumentPosition(draggedItem)
     if ( positionComparison & 4) {
-        event.target.insertAdjacentElement('beforebegin', draggedItem);
+      dropTarget.insertAdjacentElement('beforebegin', draggedItem);
     } else if ( positionComparison & 2) {
-        event.target.insertAdjacentElement('afterend', draggedItem);
+      dropTarget.insertAdjacentElement('afterend', draggedItem);
     }
     event.preventDefault()
   }
