@@ -51,3 +51,4 @@ test:
 production:
   <<: *default
   database: <%= ENV["MYSQL_DATABASE"] %>
+  socket: "/cloudsql/kiriakov-db"
