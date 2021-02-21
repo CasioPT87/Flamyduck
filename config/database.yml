@@ -20,7 +20,7 @@ default: &default
 development:
   <<: *default
   database: <%= ENV["MYSQL_DATABASE"] %>
-  socket: "/cloudsql/kiriakov-db"
+  socket: "/cloudsql/kiriakov:europe-west1:kiriakov-db"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -52,4 +52,4 @@ test:
 production:
   <<: *default
   database: <%= ENV["MYSQL_DATABASE"] %>
-  socket: "/cloudsql/kiriakov-db"
+  socket: "/cloudsql/kiriakov:europe-west1:kiriakov-db"
