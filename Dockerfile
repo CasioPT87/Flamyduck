@@ -21,4 +21,6 @@ RUN bin/rails assets:precompile
 # Redirect Rails log to STDOUT for Cloud Run to capture
 ENV RAILS_LOG_TO_STDOUT=true
 
-ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

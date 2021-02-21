@@ -1,10 +1,10 @@
+#!/bin/bash
 
-
-RAILS_ENV=production bundle exec rake db:create
+bundle exec rake db:create
 
 # Make sure we are using the most up to date
 # database schema
-RAILS_ENV=production bundle exec rake db:migrate
+bundle exec rake db:migrate
 
 set -e
 
