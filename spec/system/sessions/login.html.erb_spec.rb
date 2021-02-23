@@ -10,5 +10,7 @@ RSpec.describe "home/index.html.erb", type: :view do
     click_button('Log in')
 
     expect(page).to have_current_path(root_path)
+
+    expect(page).to have_selector('p', text: 'Hi, Sergio')
   end
 end
