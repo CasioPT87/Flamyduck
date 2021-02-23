@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Cheatsheet, type: :model do
   subject do
-    user = User.new(name: 'user 1', password: 'password')
-    described_class.new(name: 'my cheat sheet', user: user)
+    cheatsheets(:docker_compose)
   end
 
   describe 'Associations' do

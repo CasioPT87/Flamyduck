@@ -5,7 +5,7 @@ bash:
   cheatsheet: docker_compose
 
 build:
-  id: 1
+  id: 2
   content: 'docker-compose build'
   example: '<div>to rebuild the image</div>'
   cheatsheet: docker_compose
