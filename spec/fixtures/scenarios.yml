@@ -1,0 +1,11 @@
+bash:
+  id: 1
+  content: 'docker-compose exec web bash'
+  example: '<div>to create a bash within the container</div>'
+  cheatsheet: docker_compose
+
+build:
+  id: 1
+  content: 'docker-compose build'
+  example: '<div>to rebuild the image</div>'
+  cheatsheet: docker_compose

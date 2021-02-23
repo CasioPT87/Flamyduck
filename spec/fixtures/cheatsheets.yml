@@ -1,0 +1,5 @@
+docker_compose:
+  id: 1
+  name: 'docker-compose'
+  user: sergio
+  groups: docker
