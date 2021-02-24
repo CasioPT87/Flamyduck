@@ -27,12 +27,16 @@ class Logged::CheatsheetsController < ApplicationController
     @group = get_group
     if @cheatsheet.update(cheatsheet_params)
       if @group
+        flash[:notice] = 'Edit successful'
         redirect_to group_cheatsheet(@group, @cheatsheet)
       else
-        redirect_to cheatsheet_path(@group, @cheatsheet)
+        debugger
+        flash[:notice] = 'Edit successful'
+        redirect_to cheatsheet_path(@cheatsheet)
       end
     else
-      redirect_to cheatsheet_path(@cheatsheet)
+      flash[:alert] = 'Could not edit'
+      redirect_to edit_cheatsheet_path(@cheatsheet)
     end
   end
 
