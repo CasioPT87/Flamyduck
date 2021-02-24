@@ -32,8 +32,7 @@ class Logged::CheatsheetsController < ApplicationController
         flash[:notice] = 'Edited successfully'
         redirect_to group_cheatsheet(@group, @cheatsheet)
       else
-        debugger
-        flash[:alert] = 'Could not edit'
+        flash[:notice] = 'Edited successfully'
         redirect_to cheatsheet_path(@cheatsheet)
       end
     else
