@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
-  it "displays login option" do
+  it "login" do
     
     visit '/login'
 

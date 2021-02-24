@@ -1,0 +1,15 @@
+
+<% flash.each do |type, message| %>
+  <div data-controller="message" >
+    <% if type == 'alert' %>
+    <div data-message-target="cookie" class='flash alert'>
+      <%= message %>
+    </div>
+    <% end %>
+    <% if type == 'notice' %>
+    <div data-message-target="cookie" class='flash notice'>
+      <%= message %>
+    </div>
+    <% end %>
+  </div>
+<% end %>

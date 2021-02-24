@@ -1,0 +1,31 @@
+
+.flash {
+  position: fixed;
+  bottom: 0;
+  height: 85px;
+  background-color: white;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  max-width: 400px;
+  border: 3px solid;
+  align-self: center;
+  justify-self: center;
+  right: 0;
+  left: 0;
+  margin: auto;
+  margin-bottom: 20px;
+  
+}
+
+.flash.notice {
+  color: green;
+  border-color: green;
+}
+
+.flash.alert {
+  color: red;
+  border-color: red;
+}
