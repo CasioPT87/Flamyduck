@@ -18,22 +18,31 @@ class Logged::GroupsController < ApplicationController
     group = Group.new(group_params)
     group.creator = current_user
     if group.save
+      flash[:notice] = 'Created successfully'
       redirect_to groups_path
     else
-      render 'new'
+      flash[:alert] = 'Could not create'
+      redirect_to new_group_path
     end
   end
 
   def update 
     @group.cheatsheet_ids = group_params[:cheatsheet_ids]
-    @group.update(group_params)
-    redirect_to edit_group_path(@group)
+    if @group.update(group_params)
+      flash[:notice] = 'Edited successfully'
+      redirect_to edit_group_path(@group)
+    else
+      flash[:alert] = 'Could not edit'
+      redirect_to edit_group_path(@group)
+    end
   end
 
   def destroy
     if @group.destroy
+      flash[:notice] = 'Deleted successfully'
       redirect_to groups_path
     else
+      flash[:alert] = 'Could not delete'
       redirect_to groups_path
     end
   end

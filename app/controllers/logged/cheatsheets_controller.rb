@@ -17,9 +17,11 @@ class Logged::CheatsheetsController < ApplicationController
     @cheatsheet = Cheatsheet.new(cheatsheet_params)
     @cheatsheet.user = current_user
     if @cheatsheet.save
+      flash[:notice] = 'Created successfully'
       redirect_to cheatsheets_path
     else
-      render 'new'
+      flash[:alert] = 'Could not create'
+      redirect_to new_cheatsheet_path
     end
   end
 
@@ -27,11 +29,11 @@ class Logged::CheatsheetsController < ApplicationController
     @group = get_group
     if @cheatsheet.update(cheatsheet_params)
       if @group
-        flash[:notice] = 'Edit successful'
+        flash[:notice] = 'Edited successfully'
         redirect_to group_cheatsheet(@group, @cheatsheet)
       else
         debugger
-        flash[:notice] = 'Edit successful'
+        flash[:alert] = 'Could not edit'
         redirect_to cheatsheet_path(@cheatsheet)
       end
     else
