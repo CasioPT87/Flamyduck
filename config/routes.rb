@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
   root to: "home#index"
-  
-  # get 'users/new'
-  # get 'users/create'
-  # get 'sessions/new'
-  # get 'sessions/create'
-  # get 'sessions/login'
 
   scope module: 'logged' do
     resources :cheatsheets
