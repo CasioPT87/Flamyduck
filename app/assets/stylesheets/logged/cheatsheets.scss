@@ -1,5 +1,15 @@
 
 
+.scenarios-wrapper {
+  width: 100%;
+  max-width: 500px;
+  .droppable {
+    form {
+      margin: 0;
+    }
+  }
+}
+
 .cheatsheet-index {
   width: 100%;
   max-width: 500px;
