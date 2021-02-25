@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
-  it "login" do
-    
+  
+  it "logs in" do 
+     
     visit '/login'
 
     fill_in('Name', with: 'Sergio')
