@@ -18,8 +18,8 @@ RSpec.describe "_top_bar.html.erb", type: :view do
 
   def login_valid
     visit login_path
-    fill_in('Name', with: "Pepino")
-    fill_in('Password', with: "Kedisetu88")
+    fill_in('Name', with: "Sergio")
+    fill_in('Password', with: "Pasodeti99")
     click_button "Log in"
   end
 

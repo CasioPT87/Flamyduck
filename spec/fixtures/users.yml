@@ -1,4 +1,3 @@
 sergio:
-  id: 1
-  name: 'Sergio'
+  name: Sergio
   password_digest: <%= BCrypt::Password.create('Pasodeti99') %>

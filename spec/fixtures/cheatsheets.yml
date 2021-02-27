@@ -1,5 +1,11 @@
 docker_compose:
   id: 1
-  name: 'docker-compose'
+  name: docker-compose
+  user: sergio
+  groups: docker
+
+docker:
+  id: 2
+  name: docker
   user: sergio
   groups: docker

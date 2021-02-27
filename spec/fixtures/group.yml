@@ -1,6 +1,5 @@
 docker:
-  id: 1
-  name: 'docker'
-  creator_type: 'User'
+  name: docker
+  creator_type: User
   creator: sergio
   cheatsheets: docker_compose
