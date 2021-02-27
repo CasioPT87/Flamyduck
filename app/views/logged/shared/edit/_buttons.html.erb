@@ -4,12 +4,12 @@
     locals[:edit_path],
     data: {
      'edit-buttons-target': 'button'
-    }, class: 'animation'
+    }, class: 'animation', id: 'edit'
   %>
   <%= link_to image_tag('delete-icon.png'), 
     locals[:delete_path], method: :delete, data: {
       confirm: "This will delete this cheatsheet. This action can not be undone", 'edit-buttons-target': 'button'
-    }, class: 'animation'
+    }, class: 'animation', id: 'delete'
   %>
   <%= content_tag :a, content_tag(:div, ""),
    data: { 
