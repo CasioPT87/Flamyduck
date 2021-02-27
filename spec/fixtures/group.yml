@@ -3,3 +3,9 @@ docker:
   creator_type: User
   creator: sergio
   cheatsheets: docker_compose
+
+rails:
+  name: rails
+  creator_type: User
+  creator: sergio
+  cheatsheets: docker_compose

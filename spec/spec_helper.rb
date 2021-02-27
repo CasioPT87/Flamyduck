@@ -15,6 +15,8 @@
 # Capybara integration
 require 'capybara/rspec'
 
+Capybara.default_driver = :selenium_chrome
+
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
