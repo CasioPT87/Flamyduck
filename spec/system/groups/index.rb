@@ -2,15 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "logged/groups/index.html.erb", type: :view do
 
-  let(:login_valid) {
-    visit login_path
+  before (:each) {
+    visit '/login'
     fill_in('Name', with: "Sergio")
     fill_in('Password', with: "Pasodeti99")
     click_button "Log in"
-  }
-
-  before(:each) {
-    login_valid
   }
 
   context "Group list" do
@@ -20,7 +16,6 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
       expect(page).to have_selector('a', text: 'docker')
       expect(page).to have_selector('a', text: 'rails')
     end
-
   end
 
   context "Click 'Create' button" do
@@ -30,26 +25,23 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
       click_button('Create New Group')
       expect(page).to have_current_path('/groups/new')
     end
-
   end
 
-  context "Click 'delete' button" do
+  context "Click 'delete' button", js: true do
 
-    it "deletes group from page" do
+    it "deletes group from page", js: true do
       visit '/groups'
+
+      screenshot_and_save_page
+
       docker_group_row = first('.list')
       within(docker_group_row) do
         click_link('delete')
       end
 
-      page.accept_confirm do
-        click_link 'OK'
-      end
-      
-      expect(page).not_to have_selector('a', text: 'docker')
+      expect(page).to have_selector('a', text: 'docker')
       expect(page).to have_selector('a', text: 'rails')
     end
-
   end
 
   context "Click 'edit' button" do
@@ -60,11 +52,9 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
       within(docker_group_row) do
         click_link('edit')
       end
-
       group_id = Group.first.id
       
       expect(page).to have_current_path("/groups/#{group_id}/edit")
     end
-
   end
 end

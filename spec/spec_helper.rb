@@ -13,9 +13,21 @@
 # it.
 
 # Capybara integration
-require 'capybara/rspec'
+require "capybara/rspec"
+require "selenium-webdriver"
+require 'capybara-screenshot/rspec'
 
-Capybara.default_driver = :selenium_chrome
+Capybara.register_driver :selenium_chrome_headless do |app|
+
+  options = Selenium::WebDriver::Chrome::Options.new(
+    # It's the `headless` arg that make Chrome headless
+    # + you also need the `disable-gpu` arg due to a bug
+    args: %w[headless no-sandbox disable-gpu disable-dev-shm-usage window-size=1400,1400],
+  )
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium_chrome_headless
 
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
@@ -49,6 +61,12 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  # config.before(:each, type: :system) do
+  #   driven_by :salenium, using: :chrome
+
+  #   # Capybara.page.current_window.resize_to(*DEFAULT_WINDOW_SIZE)
+  # end
 
   config.include Capybara::DSL
 
