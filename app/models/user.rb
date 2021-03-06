@@ -12,6 +12,8 @@ class User < ApplicationRecord
     message: "User name must be within 3 and 15 characters"
 
   validates :password, presence: true, allow_blank: false
+  validates_length_of :password, :maximum => 15, :minimum => 6, allow_blank: false, allow_nil: false,
+    message: "Password must be within 6 and 15 characters"
   validate :password_requirements_are_met
 
   def password_requirements_are_met
