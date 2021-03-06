@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Scenario, type: :model do
 
   subject do
-    cheatsheet = Cheatsheet.new(name: 'my cheatsheet')
-    described_class.new(content: 'my scenario', cheatsheet: cheatsheet)
+    scenarios(:bash)
   end
 
   describe 'Associations' do
@@ -16,6 +15,7 @@ RSpec.describe Scenario, type: :model do
   end
   
   it 'is not valid without a cheatsheet' do
+    debugger
     subject.cheatsheet = nil
     expect(subject.validate).to be(false)
   end
@@ -37,5 +37,4 @@ RSpec.describe Scenario, type: :model do
     subject.validate
     expect(subject.errors[:content]).to contain_exactly("is too long (maximum is 50 characters)")
   end
-
 end
