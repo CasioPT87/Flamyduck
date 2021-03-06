@@ -1,0 +1,7 @@
+<h1>Edit user</h1>
+<%= form_with model: @user do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.text_field :email, placeholder: "Email" %>
+  <%= f.submit 'Edit User' %>
+<% end %>

@@ -1,5 +1,5 @@
 class Logged::GroupsController < ApplicationController
-
+  before_action :authorized
   before_action :set_group, only: [:show, :update, :edit, :destroy]
 
   def index
