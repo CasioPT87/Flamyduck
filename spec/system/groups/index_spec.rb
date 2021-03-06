@@ -30,17 +30,16 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
   context "Click 'delete' button", js: true do
 
     it "deletes group from page", js: true do
+      sleep(1)
       visit '/groups'
 
-      screenshot_and_save_page
+      first('#toggle').click
+      first('#delete').click
 
-      docker_group_row = first('.list')
-      within(docker_group_row) do
-        click_link('delete')
-      end
+      page.accept_alert
 
       expect(page).to have_selector('a', text: 'docker')
-      expect(page).to have_selector('a', text: 'rails')
+      expect(page).not_to have_selector('a', text: 'rails')
     end
   end
 

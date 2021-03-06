@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 
-  it 'needs a password with at least 6 characters including at least one number and one letter', :pending do
+  it 'needs a password with at least 6 characters including at least one number and one letter' do
     subject.password = 'onlyletters'
     expect(subject).not_to be_valid
 
