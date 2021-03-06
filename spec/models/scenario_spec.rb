@@ -15,7 +15,6 @@ RSpec.describe Scenario, type: :model do
   end
   
   it 'is not valid without a cheatsheet' do
-    debugger
     subject.cheatsheet = nil
     expect(subject.validate).to be(false)
   end

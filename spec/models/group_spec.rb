@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   subject do
-    group(:docker)
+    groups(:docker)
   end
 
   describe 'Associations' do
