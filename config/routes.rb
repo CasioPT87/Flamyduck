@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
+  resources :scenarios, only: [:update]
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

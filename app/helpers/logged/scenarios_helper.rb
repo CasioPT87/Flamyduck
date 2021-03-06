@@ -1,0 +1,2 @@
+module Logged::ScenariosHelper
+end
