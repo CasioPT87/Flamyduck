@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   subject do
-    user = Group.new(name: 'user1')
-    described_class.new(name: 'my group', creator: user)
+    group(:docker)
   end
 
   describe 'Associations' do
