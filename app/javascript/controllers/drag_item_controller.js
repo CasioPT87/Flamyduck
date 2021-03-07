@@ -2,10 +2,17 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
 
-  // static targets = [];
+  static targets = ['scenario'];
 
-  // connect() {
-  // }
+  initialize() {
+    console.log('initialize')
+    console.log(this.scenarioTargets)
+  }
+
+  connect() {
+    console.log('connect')
+    console.log(this.scenarioTargets)
+  }
 
   dragstart = (event) => {
     event.dataTransfer.setData("application/drag-key", event.target.getAttribute("data-sort-id"));
