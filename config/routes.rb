@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   scope module: 'logged' do
     resources :cheatsheets
     resources :groups
-    resources :scenarios, only: [:update]
+    resources :sorts, only: [:update]
 
     resources :groups do
       resources :cheatsheets, only: [:show]
