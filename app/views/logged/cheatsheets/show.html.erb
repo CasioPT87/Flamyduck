@@ -19,7 +19,11 @@
 
 <div class="scenarios-wrapper" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
   <% @cheatsheet.scenarios.each_with_index do |scenario, index| %>
-    <div class="droppable" data-controller="edit-scenario" draggable="true" data-sort-id="<%= index %>" data-drag-item-target="scenario">
+
+    <%= form_with model: scenario, url: sort_path, id: "form-sort-#{scenario.id}", local: true do |form| %>
+    <% end %>
+
+    <div class="droppable" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
       <%= form_with model: @cheatsheet, local: true do |form| %>
         <div data-edit-scenario-target="showingScenarioWrapper">
           <%= render 'scenarios/scenario', scenario: scenario do %>
