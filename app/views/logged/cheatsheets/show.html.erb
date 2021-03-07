@@ -18,7 +18,7 @@
 <% end %>
 
 <div class="scenarios-wrapper" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
-  <% @cheatsheet.scenarios.each_with_index do |scenario, index| %>
+  <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
 
     <%= form_with model: scenario, url: sort_path, id: "form-sort-#{scenario.id}", local: true do |form| %>
     <% end %>

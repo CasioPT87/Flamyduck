@@ -42,7 +42,6 @@ class Logged::CheatsheetsController < ApplicationController
   end
 
   def show
-    @scenarios = Scenario.find_by(cheatsheet: @cheatsheet)
     @group = get_group
   end
 
