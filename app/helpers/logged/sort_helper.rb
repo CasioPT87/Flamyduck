@@ -1,0 +1,2 @@
+module Logged::SortHelper
+end
