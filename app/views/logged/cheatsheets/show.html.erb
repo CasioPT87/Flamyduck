@@ -17,9 +17,9 @@
   <h3>You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
 <% end %>
 
-<div class="scenarios-wrapper" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter drop->drag-item#drop dragend->drag-item#dragend">
-  <% @cheatsheet.scenarios.each do |scenario| %>
-    <div class="droppable" data-controller="edit-scenario" draggable="true" data-sort-id="1">
+<div class="scenarios-wrapper" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
+  <% @cheatsheet.scenarios.each_with_index do |scenario, index| %>
+    <div class="droppable" data-controller="edit-scenario" draggable="true" data-sort-id="<%= index %>">
       <%= form_with model: @cheatsheet, local: true do |form| %>
         <div data-edit-scenario-target="showingScenarioWrapper">
           <%= render 'scenarios/scenario', scenario: scenario do %>

@@ -13,10 +13,11 @@ export default class extends Controller {
   }
 
   dragover(event) {
+    event.preventDefault();
     const dragElement = event.target;
     this.dropElement = dragElement.closest(".droppable");
     if (this.dropElement) {
-      event.preventDefault();
+      this.addOnHoverStyles(this.dropElement);
       return true;
     } else {
       return false;
@@ -25,6 +26,12 @@ export default class extends Controller {
 
   dragenter(event) {
     event.preventDefault();
+  }
+
+  dragleave(event) {
+    event.preventDefault();
+    const leftElement = event.target.closest(".droppable");
+    this.removeOnHoverStyles(leftElement);
   }
 
   drop(event) {
@@ -37,10 +44,19 @@ export default class extends Controller {
     } else if ( positionComparison & 2) {
       dropTarget.insertAdjacentElement('afterend', draggedItem);
     }
+    this.removeOnHoverStyles(dropTarget);
     event.preventDefault();
   }
 
   dragend(event) {
     console.log('pal servidor que vas')
+  }
+
+  addOnHoverStyles = (element) => {
+    element.style.backgroundColor = 'black';
+  }
+
+  removeOnHoverStyles = (element) => {
+    element.style.backgroundColor = 'transparent';
   }
 }
