@@ -9,6 +9,7 @@ class Cheatsheet < ApplicationRecord
   accepts_nested_attributes_for :scenarios, allow_destroy: true
 
   def sorted_scenarios
+    return scenarios if order_scenarios.nil?
     return scenarios.sort do |a, b|
       order_scenarios.split(",").find_index(a.id.to_s) <=> order_scenarios.split(",").find_index(b.id.to_s)
     end
