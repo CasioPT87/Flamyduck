@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_095932) do
+ActiveRecord::Schema.define(version: 2021_03_08_121438) do
 
   create_table "action_text_rich_texts", charset: "latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2021_03_07_095932) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest", null: false
     t.string "email", null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

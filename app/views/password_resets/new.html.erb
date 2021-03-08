@@ -1,5 +1,5 @@
 <h3>Please introduce your email and we will send you an email to set your password</h3>
-<%= form_tag '/reset-password-send-email' do %>
+<%= form_tag password_resets_path, method: :post do %>
    <%= email_field_tag :email, nil, placeholder: "Email" %>
    <%= submit_tag "Send" %>
 <%end%>
