@@ -16,6 +16,8 @@ class User < ApplicationRecord
     message: "Password must be within 6 and 15 characters"
   validate :password_requirements_are_met
 
+  validates :email, presence: true, allow_blank: false, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+
   def password_requirements_are_met
     rules = {
       " must contain at least one lowercase letter"  => /[a-z]+/,

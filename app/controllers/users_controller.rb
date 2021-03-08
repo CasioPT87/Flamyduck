@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :password))
+    @user = User.new(params.require(:user).permit(:name, :password, :email))
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'User created successfuly'
