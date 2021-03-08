@@ -17,10 +17,9 @@ Rails.application.routes.draw do
   resources :scenarios, only: [:update]
 
   get 'login', to: 'sessions#new'
-  get 'reset-password', to: 'sessions#edit'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :password_resets
+  resources :password_resets, only: [:new, :edit, :create, :update]
 
 end
