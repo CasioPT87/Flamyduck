@@ -2,13 +2,13 @@
   <%= link_to image_tag('logo.png'), "/" %>
   <div class="buttons">
     <% if logged_in? %>
-      <%= button_to "Cheatsheets", '/cheatsheets', method: :get %>
-      <%= button_to "Groups", '/groups', method: :get %>
-      <%= button_to "Account", edit_user_path(current_user), method: :get %>
-      <%= button_to "Logout", '/logout', method: :delete %>
+      <%= link_to "Cheatsheets", '/cheatsheets', method: :get %>
+      <%= link_to "Groups", '/groups', method: :get %>
+      <%= link_to "Account", edit_user_path(current_user), method: :get %>
+      <%= link_to "Logout", '/logout', method: :delete %>
     <%else%>
-      <%= button_to "Login", '/login', method: :get %>
-      <%= button_to "Sign Up", '/users/new', method: :get %>
+      <%= link_to "Login", '/login', method: :get %>
+      <%= link_to "Sign Up", '/users/new', method: :get %>
     <%end%>
   </div>
 </div>
