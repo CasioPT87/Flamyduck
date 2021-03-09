@@ -1,14 +1,14 @@
-<div class="top-bar">
-  <%= link_to image_tag('logo.png'), "/" %>
-  <div class="buttons">
+<nav class="e-nav">
+  <%= link_to image_tag('logo.png', :class => "u-image-logo"), "/" %>
+  <div class="o-container-buttons-nav">
     <% if logged_in? %>
-      <%= link_to "Cheatsheets", '/cheatsheets', method: :get %>
-      <%= link_to "Groups", '/groups', method: :get %>
-      <%= link_to "Account", edit_user_path(current_user), method: :get %>
-      <%= link_to "Logout", '/logout', method: :delete %>
+      <%= link_to "Cheatsheets", '/cheatsheets', method: :get, class: 'e-link e-link-nav' %>
+      <%= link_to "Groups", '/groups', method: :get, class: 'e-link e-link-nav' %>
+      <%= link_to "Account", edit_user_path(current_user), method: :get, class: 'e-link e-link-nav' %>
+      <%= link_to "Logout", '/logout', method: :delete, class: 'e-link e-link-nav' %>
     <%else%>
-      <%= link_to "Login", '/login', method: :get %>
-      <%= link_to "Sign Up", '/users/new', method: :get %>
+      <%= link_to "Login", '/login', method: :get, class: 'e-link e-link-nav' %>
+      <%= link_to "Sign Up", '/users/new', method: :get, class: 'e-link e-link-nav' %>
     <%end%>
   </div>
-</div>
+</nav>

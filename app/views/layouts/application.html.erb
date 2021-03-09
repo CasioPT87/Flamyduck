@@ -10,11 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="page">
+  <body>
     <%= render "/layouts/top_bar" %>
-    <div class="content">
+    <div class="o-container">
       <% if logged_in? %>
-        <p class="user-name">Hi, <%= current_user.name %></p>
+        <p class="e-text-user-name">Hi, <%= current_user.name %></p>
       <% end %>
       <%= yield %>
     </div>

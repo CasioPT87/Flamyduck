@@ -1,7 +1,7 @@
 <h1>Edit user</h1>
-<%= form_with model: @user do |f| %>
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.text_field :email, placeholder: "Email" %>
-  <%= f.submit 'Edit User' %>
+<%= form_with model: @user, class: 'e-form e-form-insert' do |f| %>
+  <%= f.text_field :name, placeholder: "Name", class: 'e-input' %>
+  <%= f.password_field :password, placeholder: "Password", class: 'e-input' %>
+  <%= f.text_field :email, placeholder: "Email", class: 'e-input' %>
+  <%= f.submit 'Edit User', class: 'e-button e-button-submit' %>
 <% end %>

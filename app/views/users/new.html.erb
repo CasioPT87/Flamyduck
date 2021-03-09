@@ -1,7 +1,7 @@
 <h1>Sign up</h1>
-<%= form_for @user do |f| %>
-  <%= f.text_field :name, placeholder: "Name" %>
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.email_field :email, placeholder: "Email" %>
-  <%= f.submit %>
+<%= form_with model: @user, class: 'e-form e-form-insert' do |f| %>
+  <%= f.text_field :name, placeholder: "Name", class: 'e-input' %>
+  <%= f.password_field :password, placeholder: "Password", class: 'e-input' %>
+  <%= f.text_field :email, placeholder: "Email", class: 'e-input' %>
+  <%= f.submit 'Create User', class: 'e-button e-button-submit' %>
 <% end %>

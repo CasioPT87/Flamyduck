@@ -14,41 +14,6 @@
   display: none;
 }
 
-.cheatsheet-index {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 20px 0 20px;
-  padding: 0 20px 0 20px;
-  
-  ul {
-    padding: 0;
-
-    li {
-      list-style-type: none;
-      margin-bottom: 10px;
-
-      .list {
-        display: flex;
-      }
-
-      a.cheatsheet {
-        padding: 20px 20px;
-        text-align: center;
-        text-decoration: none;
-        border: 1px solid;
-        color: black;
-        background-color: white;
-        border-radius: 5px;
-        padding: 10px 20px;
-
-        img {
-          max-width: 25px;
-        }
-      }
-    }
-  }
-}
-
 .add-scenario {
   margin-top: 20px;
   background-color: #d4d4d4;
@@ -73,30 +38,30 @@
   }
 }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
+// nav {
+//   display: flex;
+//   flex-wrap: wrap;
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
+//   ul {
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding: 0;
 
-    li {
-      list-style-type: none;
-      height: 50px;
+//     li {
+//       list-style-type: none;
+//       height: 50px;
 
-      a {
-        padding: 20px 20px;
-        text-align: center;
-        text-decoration: none;
-        background-color: white;
-        color: grey;
-        border-radius: 3px;
-        padding: 10px 20px;
-        cursor: pointer;
-        margin: 5px;
-      }    
-    }
-  }
-}
+//       a {
+//         padding: 20px 20px;
+//         text-align: center;
+//         text-decoration: none;
+//         background-color: white;
+//         color: grey;
+//         border-radius: 3px;
+//         padding: 10px 20px;
+//         cursor: pointer;
+//         margin: 5px;
+//       }    
+//     }
+//   }
+// }

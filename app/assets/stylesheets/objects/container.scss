@@ -1,0 +1,24 @@
+
+.o-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.o-container-buttons-nav {
+  display: flex;
+}
+
+.o-container-cheatsheets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
+}

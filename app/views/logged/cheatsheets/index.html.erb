@@ -1,16 +1,16 @@
 <h1>List of cheatsheets</h1>
 
-<%= button_to "Create New", '/cheatsheets/new', method: :get%>
+<div class="o-container-cheatsheets">
+  <%= link_to "Create Cheatsheet", '/cheatsheets/new', method: :get, class: 'e-button e-button-submit' %>
 
-<% if @cheatsheets.empty? %>
-  <p>You haven't created any yet</p>
-<% else %>
-  <div class="cheatsheet-index">
-    <ul>
+  <% if @cheatsheets.empty? %>
+    <p>You haven't created any yet</p>
+  <% else %>
+    <ul class="e-unordered-list">
       <% @cheatsheets.each do |cheatsheet| %>
-        <li>
-          <div class="list">
-            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet), class: 'cheatsheet' %>
+        <li class="e-list-item">
+          <div class="o-wrapper-cheatsheets">
+            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet), class: 'e-link-list' %>
             <%= render 'logged/shared/edit/buttons', locals: {
               object: cheatsheet,
               edit_path: edit_cheatsheet_path(cheatsheet),
@@ -19,7 +19,7 @@
         </li>
       <% end %>
     </ul>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 
