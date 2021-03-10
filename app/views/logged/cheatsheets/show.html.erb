@@ -11,10 +11,10 @@
   </nav>
 <% end %>
 
-<h1 class="e-title"><%= @cheatsheet.name %></h1>
+<h1 class="e-title e-title-1"><%= @cheatsheet.name %></h1>
 
 <% if @cheatsheet.scenarios.empty? %>
-  <h3 class="e-title">You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
+  <h3 class="e-title e-title-3">You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
 <% end %>
 
 <div class="scenarios-wrapper" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
