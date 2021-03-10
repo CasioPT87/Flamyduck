@@ -10,6 +10,7 @@ class Cheatsheet < ApplicationRecord
 
   def sorted_scenarios
     return scenarios if scenarios.size < 2
+    order_scenarios ||= ""
     order = order_scenarios.split(",")
     scenarios.sort do |a, b|
       order.find_index(a.id.to_s) <=> order.find_index(b.id.to_s)
@@ -25,6 +26,7 @@ class Cheatsheet < ApplicationRecord
   private
 
   def add_created_scenario_to_sorted
+    order_scenarios ||= ""
     order = order_scenarios.split(",").map { |string_id| string_id.to_i }
     scenario_ids_not_sorted = scenarios.select do |scenario|
       order.find_index(scenario.id).nil?
@@ -34,6 +36,7 @@ class Cheatsheet < ApplicationRecord
   end
 
   def remove_delted_scenario_from_sorted
+    order_scenarios ||= ""
     order = order_scenarios.split(",").map { |string_id| string_id.to_i }
     order.delete_if do |scenario_id|
       scenarios.map(&:id).find_index(scenario_id).nil?

@@ -57,6 +57,7 @@ export default class extends Controller {
 
   dragend(event) {
     event.preventDefault();
+    if (!this.draggedItem) return;
     const draggedScenarioId = this.draggedItem.dataset.scenarioId;
     const order = this.getOrder();
     const formData = new FormData();

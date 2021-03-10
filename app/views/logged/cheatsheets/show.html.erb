@@ -1,10 +1,10 @@
 
 <% if @group %>
-  <nav>
-    <ul>
+  <nav class='e-nav e-nav-cheatsheet-change'>
+    <ul class='e-unordered-list e-unordered-list-cheatsheet-change'>
       <% @group.cheatsheets.each do |cheatsheet| %>
-        <li>
-          <%= link_to cheatsheet.name, [@group, cheatsheet]%>
+        <li class="e-list-item">
+          <%= link_to cheatsheet.name, [@group, cheatsheet], class: 'e-link e-link-list u-margin--4' %>
         </li>
       <% end %>
     </ul>
