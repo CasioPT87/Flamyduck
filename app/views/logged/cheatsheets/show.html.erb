@@ -34,11 +34,15 @@
         </div>
         <%# this form is to edit the scenario %>
         <%= form.fields_for :scenarios, scenario do |scenario_form| %>
-          <div data-edit-scenario-target="editingScenarioWrapper" class="editing-scenario-wrapper">
-            <%= scenario_form.text_field :content %>
-            <%= scenario_form.rich_text_area :example %>
-            <%= scenario_form.submit 'update' %>
-            <button data-action="click->edit-scenario#cancelEditing" }>Cancel</button>
+          <div class="o-container">
+            <div data-edit-scenario-target="editingScenarioWrapper" class="o-wrapper-scenario u--blue u--hidden">
+              <%= scenario_form.text_field :content, class: 'e-input' %>
+              <%= scenario_form.rich_text_area :example %>
+              <div class="o-wrapper-scenario-buttons-edit">
+                <%= scenario_form.submit 'Update', class: 'e-button e-button-submit u--margin-rigth-4' %>
+                <button data-action="click->edit-scenario#cancelEditing" } class='e-button e-button-submit u--margin-left-4'>Cancel</button>
+              </div>
+            </div>
           </div>
           <%# the value of the hidden field is set in 'edit_scenario_controller '%>
           <div data-edit-scenario-target="hiddenDeleteScenario">
@@ -50,9 +54,9 @@
   <% end %>
 </div>
 
-<div data-controller='add-scenario' class='o-wrapper-scenario-add'>
-  <div data-add-scenario-target='form' class="o-wrapper-scenario-create u--hidden">
-    <%= form_with model: @cheatsheet, local: true, class: 'e-form e-form-insert' do |form| %>
+<div data-controller='add-scenario'>
+  <div data-add-scenario-target='form' class="o-wrapper-scenario u--salmon u--hidden">
+    <%= form_with model: @cheatsheet, local: true, class: 'e-form' do |form| %>
       <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
         <%= scenario_form.text_field :content, class: 'e-input' %>
         <%= scenario_form.rich_text_area :example %>

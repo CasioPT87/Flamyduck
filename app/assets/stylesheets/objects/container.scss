@@ -1,4 +1,3 @@
-
 .o-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +37,10 @@
   background-color: white;
 }
 
-.o-container-scenario-item-content {
+.o-container-scenario-droppable {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .o-container-scenario-edit-buttons {
