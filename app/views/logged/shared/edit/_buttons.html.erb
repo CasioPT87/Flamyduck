@@ -1,19 +1,19 @@
 
-<div data-controller="edit-buttons" class="edit-buttons" >
-  <%= link_to image_tag('edit-icon.png'),
+<div data-controller="edit-buttons" class="o-container-buttons-edit" >
+  <%= link_to image_tag('edit-icon.png', class: 'e-image-edit'),
     locals[:edit_path],
     data: {
      'edit-buttons-target': 'button'
-    }, class: 'animation', id: 'edit'
+    }, class: 'e-link e-link-image e-link-image-edit e-link-image-edit-animation', id: 'edit'
   %>
-  <%= link_to image_tag('delete-icon.png'), 
+  <%= link_to image_tag('delete-icon.png', class: 'e-image-edit'), 
     locals[:delete_path], method: :delete, data: {
       confirm: "This will delete this cheatsheet. This action can not be undone", 'edit-buttons-target': 'button'
-    }, class: 'animation', id: 'delete'
+    }, class: 'e-link e-link-image e-link-image-edit e-link-image-edit-animation', id: 'delete'
   %>
   <%= content_tag :a, content_tag(:div, ""),
    data: { 
      action: 'click->edit-buttons#toggle', 'edit-buttons-target': 'button'
-    }, class: 'animation last-button right-arrow', id: 'toggle'
+    }, class: 'e-link e-link-image e-link-image-edit e-link-image-edit-animation u-link-image-edit-toggle--right', id: 'toggle'
   %>
 </div>
