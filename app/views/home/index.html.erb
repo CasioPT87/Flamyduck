@@ -1,6 +1,8 @@
 
 <h1 class="e-title e-title-1">Memory is overrated</h1>
-<h4 class="e-title e-title-4">Log in if you have an account already or Sign up if you are new around here</h4>
+<% if !logged_in? %>
+  <h4 class="e-title e-title-4">Log in if you have an account already or Sign up if you are new around here</h4>
+<% end %>
 
 <%= image_tag 'logo.png', class: 'u-image--logo-home' %>
 
