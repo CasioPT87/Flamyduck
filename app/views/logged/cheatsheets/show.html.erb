@@ -17,14 +17,11 @@
   <h3 class="e-title e-title-3">You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
 <% end %>
 
-<div class="o-container" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
+<div class="o-container o-container-scenario" data-controller="drag-item" data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend">
   <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
 
-    <%# <%= form_with model: scenario, url: sort_path, id: "form-sort-#{scenario.id}", local: true do |form| %>
-    <%# <% end %>
-
     <div class="o-container-scenario-droppable" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
-      <%= form_with model: @cheatsheet, local: true, class: 'e-form e-form-insert' do |form| %>
+      <%= form_with model: @cheatsheet, local: true, class: 'e-form e-form-scenario' do |form| %>
         <%# this shows the scenario %>
         <div data-edit-scenario-target="showingScenarioWrapper">
           <%= render 'scenarios/scenario', scenario: scenario do %>
@@ -34,15 +31,8 @@
         </div>
         <%# this form is to edit the scenario %>
         <%= form.fields_for :scenarios, scenario do |scenario_form| %>
-          <div class="o-container">
-            <div data-edit-scenario-target="editingScenarioWrapper" class="o-wrapper-scenario u--blue u--hidden">
-              <%= scenario_form.text_field :content, class: 'e-input' %>
-              <%= scenario_form.rich_text_area :example %>
-              <div class="o-wrapper-scenario-buttons-edit">
-                <%= scenario_form.submit 'Update', class: 'e-button e-button-submit u--margin-rigth-4' %>
-                <button data-action="click->edit-scenario#cancelEditing" } class='e-button e-button-submit u--margin-left-4'>Cancel</button>
-              </div>
-            </div>
+          <div data-edit-scenario-target="editingScenarioWrapper" class="o-container o-wrapper-scenario u--blue u--hidden">
+            <%= render partial: 'scenarios/edit_scenario', locals: { scenario_form: scenario_form } %>
           </div>
           <%# the value of the hidden field is set in 'edit_scenario_controller '%>
           <div data-edit-scenario-target="hiddenDeleteScenario">
@@ -54,16 +44,9 @@
   <% end %>
 </div>
 
-<div data-controller='add-scenario'>
-  <div data-add-scenario-target='form' class="o-wrapper-scenario u--salmon u--hidden">
-    <%= form_with model: @cheatsheet, local: true, class: 'e-form' do |form| %>
-      <%= form.fields_for :scenarios, @cheatsheet.scenarios.build do |scenario_form| %>
-        <%= scenario_form.text_field :content, class: 'e-input' %>
-        <%= scenario_form.rich_text_area :example %>
-        <%= scenario_form.submit 'create', class: 'e-button e-button-submit' %>
-      <% end %>
-    <% end %>
-  </div>
+<%# and this is to create a new scenario %>
+<div data-controller='add-scenario' class="o-container u-width--all">
+  <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet } %>
   <%= image_tag 'add-icon.png', class: 'e-image-scenario-add', data: { 
      action: 'click->add-scenario#toggle'
     } %>
