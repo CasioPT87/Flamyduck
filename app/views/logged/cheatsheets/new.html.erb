@@ -1,8 +1,7 @@
 <h1 class="e-title e-title-1">create a new cheatsheet</h1>
-
-<%= form_with model: @cheatsheet do |form| %>
-  <%= form.text_field :name %>
-  <%= form.submit %>
+<%= form_with model: @cheatsheet, class: 'e-form e-form-insert' do |form| %>
+  <%= form.text_field :name, class: 'e-input' %>
+  <%= form.submit "Create Cheatsheet", class: 'e-button e-button-submit' %>
 <% end %>
 
 

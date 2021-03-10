@@ -1,5 +1,5 @@
 class Cheatsheet < ApplicationRecord
-  has_many :scenarios
+  has_many :scenarios, dependent: :destroy
   belongs_to :user
   has_and_belongs_to_many :groups
 

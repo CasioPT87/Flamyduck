@@ -1,8 +1,8 @@
 <h1 class="e-title e-title-1">create a new group</h1>
 
-<%= form_with model: @group do |form| %>
-  <%= form.text_field :name, placeholder: 'Name for your group' %>
-  <%= form.submit %>
+<%= form_with model: @group, class: 'e-form e-form-insert' do |form| %>
+  <%= form.text_field :name, placeholder: 'Name for your group', class: 'e-input' %>
+  <%= form.submit "Create Group", class: 'e-button e-button-submit' %>
 <% end %>
 
 
