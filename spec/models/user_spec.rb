@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
 
   context 'Name and Password validation' do
 
-    subject { User.new(name: 'sergio', password: 'Whatever11' )}
+    subject { User.new(name: 'sergio', password: 'Whatever11', email: 'a@b.com' )}
 
     it 'can save' do
       expect(subject).to be_valid
