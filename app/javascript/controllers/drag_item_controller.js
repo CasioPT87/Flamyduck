@@ -22,7 +22,7 @@ export default class extends Controller {
   dragover(event) {
     event.preventDefault();
     const dragElement = event.target;
-    this.dropElement = dragElement.closest(".droppable");
+    this.dropElement = dragElement.closest(".o-container-scenario-droppable");
     if (this.dropElement) {
       this.addOnHoverStyles(this.dropElement);
       return true;
@@ -37,7 +37,7 @@ export default class extends Controller {
 
   dragleave(event) {
     event.preventDefault();
-    const leftElement = event.target.closest(".droppable");
+    const leftElement = event.target.closest(".o-container-scenario-droppable");
     this.removeOnHoverStyles(leftElement);
   }
 

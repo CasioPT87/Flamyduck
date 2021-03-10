@@ -2,3 +2,16 @@
 .o-wrapper-cheatsheets, .o-wrapper-groups {
   display: flex;
 }
+
+.o-wrapper-scenario {
+  display: flex;
+  padding: 16px;
+}
+
+.o-wrapper-scenario-create {
+  display: flex;
+  padding: 24px;
+  margin: 8px;
+  border-radius: 4px;
+  background: #ffa8a8;
+}

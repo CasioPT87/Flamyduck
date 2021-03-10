@@ -31,3 +31,27 @@
   display: flex;
   align-items: center;
 }
+
+.o-container-scenario-item {
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+}
+
+.o-container-scenario-item-content {
+}
+
+.o-container-scenario-edit-buttons {
+  display: flex;
+  flex-direction: column;
+  
+
+  input[type="image"], img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    cursor: pointer;
+    margin: 5px 0 0 5px;
+  }
+}

@@ -1,14 +1,14 @@
 
-<div class='scenario'>
-  <div class='data'>
-    <div class='content'>
+<div class='o-wrapper-scenario'>
+  <div class='o-container-scenario-item'>
+    <div class=''>
        <%= local_assigns[:scenario].content %>
     </div> 
     <% unless local_assigns[:scenario].example.empty? %>  
       <%= local_assigns[:scenario].example %>
     <% end %>
   </div>
-  <div class='edit'>
+  <div class='o-container-scenario-edit-buttons'>
     <%= yield %>
   </div>
 </div>
