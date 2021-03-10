@@ -28,7 +28,8 @@ class Logged::CheatsheetsController < ApplicationController
   def update
     @group = get_group
     if @cheatsheet.update(cheatsheet_params)
-      # @cheatsheet.update_sorted_scenarios
+      order = @cheatsheet.updated_sorted_scenarios
+      @cheatsheet.update(order_scenarios: order.join(",")) unless order.nil?
       if @group
         flash[:notice] = 'Edited successfully'
         redirect_to group_cheatsheet(@group, @cheatsheet)
