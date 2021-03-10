@@ -1,14 +1,7 @@
-
 <h1>Edit Group</h1>
-
-
-<%= form_with model: @group, method: :patch, local: true do |form| %>
-
-  <h5>Edit name</h5>
-  <%= form.text_field :name %>
-
+<%= form_with model: @group, method: :patch, local: true, class: 'e-form e-form-insert' do |form| %>
+  <%= form.text_field :name, class: 'e-input' %>
   <h5>Select the cheatsheets to be in this group</h5>
- 
   <% if @cheatsheets.any? %>
     <%= form.collection_check_boxes(:cheatsheet_ids, @cheatsheets, :id, :name) do |b| %>
       <div>
@@ -20,6 +13,6 @@
     <p>You haven't created any cheatsheet yet</p>
   <% end %>
 
-  <%= form.submit "Update cheatsheets for Group" %>
+  <%= form.submit "Update cheatsheets for Group", class: 'e-button e-button-submit' %>
 <% end %>
 

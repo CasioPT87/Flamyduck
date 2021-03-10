@@ -1,19 +1,19 @@
 <h1>Choose a group or create a new one</h1>
 
-<%= button_to "Create New Group", '/groups/new', method: :get%>
+<div class="o-container-groups">
+  <%= link_to "Create New Group", '/groups/new', method: :get, class: 'e-button e-button-submit' %>
 
-<% if @groups.empty? %>
-  <p>You haven't created any yet</p>
-<% else %>
-  <div class="group-index">
-    <ul>
+  <% if @groups.empty? %>
+    <p>You haven't created any yet</p>
+  <% else %>
+    <ul class="e-unordered-list">
       <% @groups.each do |group| %>
-        <li>
-          <div class="list">
+        <li class="e-list-item">
+          <div class="o-wrapper-groups">
             <% if group.cheatsheets.empty? %>
-              <%= link_to group.name, '#', class: 'group' %>
+              <%= link_to group.name, '#', class: 'e-link-list' %>
             <% else%>
-              <%= link_to group.name, [group, group.cheatsheets.first], class: 'group' %>
+              <%= link_to group.name, [group, group.cheatsheets.first], class: 'e-link-list' %>
             <% end%>
             <%= render 'logged/shared/edit/buttons', locals: {
               object: group,
@@ -23,8 +23,8 @@
         </li>
       <% end %>
     </ul>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 
 

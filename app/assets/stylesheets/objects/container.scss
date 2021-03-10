@@ -8,11 +8,15 @@
   max-width: 1400px;
 }
 
+.o-container-nav {
+  margin-bottom: 20px;
+}
+
 .o-container-buttons-nav {
   display: flex;
 }
 
-.o-container-cheatsheets {
+.o-container-cheatsheets, .o-container-groups {
   display: flex;
   flex-direction: column;
   justify-content: center;
