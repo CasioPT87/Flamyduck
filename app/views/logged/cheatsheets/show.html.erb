@@ -21,7 +21,6 @@
   <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
 
     <div class="o-container-scenario-droppable" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
-      <%= form_with model: @cheatsheet, local: true, class: 'e-form e-form-scenario' do |form| %>
         <%# this shows the scenario %>
         <div data-edit-scenario-target="showingScenarioWrapper">
           <%= render 'scenarios/scenario', scenario: scenario do %>
@@ -30,15 +29,14 @@
           <% end %>
         </div>
         <%# this form is to edit the scenario %>
-        <%= form.fields_for :scenarios, scenario do |scenario_form| %>
+        <%= form_with model: scenario, url: cheatsheet_scenario_path(@cheatsheet, scenario), local: true, class: 'e-form e-form-scenario' do |form| %>
           <div data-edit-scenario-target="editingScenarioWrapper" class="o-container o-wrapper-scenario u--blue u--hidden">
-            <%= render partial: 'scenarios/edit_scenario', locals: { scenario_form: scenario_form } %>
+            <%= render partial: 'scenarios/edit_scenario', locals: { scenario_form: form } %>
           </div>
           <%# the value of the hidden field is set in 'edit_scenario_controller '%>
           <div data-edit-scenario-target="hiddenDeleteScenario">
-            <%= scenario_form.hidden_field :_destroy, value: true %>
+            <%= form.hidden_field :_destroy, value: true %>
           </div>
-        <% end %>
       <% end %>
     </div>
   <% end %>

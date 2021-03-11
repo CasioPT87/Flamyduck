@@ -38,7 +38,6 @@ class Logged::CheatsheetsController < ApplicationController
         redirect_to cheatsheet_path(@cheatsheet)
       end
     else
-      debugger
       flash[:alert] = @cheatsheet.errors.full_messages.join(', ')
       redirect_to cheatsheet_path(@cheatsheet)
     end

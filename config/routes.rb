@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :edit, :update]
-  resources :scenarios, only: [:update]
+  
+  resources :cheatsheets do
+    resources :scenarios
+  end
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
