@@ -26,13 +26,13 @@ RSpec.describe Cheatsheet, type: :model do
   it 'has a name with empty string' do
     subject.name = ''
     subject.validate
-    expect(subject.errors[:name]).to include("can't be blank", "is too short (minimum is 3 characters)")
+    expect(subject.errors[:name]).to include("can't be blank", "is too short (minimum is 1 character)")
   end
 
-  it 'has a name with more than 30 characters' do
+  it 'has a name with more than 254 characters' do
     subject.name = ''
-    31.times { subject.name << 'a'}
+    255.times { subject.name << 'a'}
     subject.validate
-    expect(subject.errors[:name]).to contain_exactly("is too long (maximum is 30 characters)")
+    expect(subject.errors[:name]).to contain_exactly("is too long (maximum is 254 characters)")
   end
 end

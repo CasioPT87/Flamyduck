@@ -22,7 +22,7 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
 
     it "directs to new group page form" do
       visit '/groups'
-      click_button('Create New Group')
+      click_link('Create New Group')
       expect(page).to have_current_path('/groups/new')
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
 
     it "directs to edit cheatsheet page" do
       visit '/groups'
-      docker_group_row = first('.list')
+      docker_group_row = first('.o-wrapper-groups')
       within(docker_group_row) do
         click_link('edit')
       end

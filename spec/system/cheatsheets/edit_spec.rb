@@ -22,7 +22,7 @@ RSpec.describe "logged/cheatsheets/edit.html.erb", type: :view do
 
     it "directs to new cheatsheet page form" do
       visit '/cheatsheets'
-      click_button('Create New')
+      click_link('Create New Cheatsheet')
       expect(page).to have_current_path('/cheatsheets/new')
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe "logged/cheatsheets/edit.html.erb", type: :view do
 
     it "deletes cheatsheet from page" do
       visit '/cheatsheets'
-      docker_compose_cheatsheet_row = first('.list')
+      docker_compose_cheatsheet_row = first('.o-wrapper-cheatsheets')
       within(docker_compose_cheatsheet_row) do
         click_link('delete')
       end
@@ -45,12 +45,13 @@ RSpec.describe "logged/cheatsheets/edit.html.erb", type: :view do
 
     it "directs to edit cheatsheet page" do
       visit '/cheatsheets'
-      docker_compose_cheatsheet_row = first('.list')
+      docker_compose_cheatsheet_row = first('.o-wrapper-cheatsheets')
       within(docker_compose_cheatsheet_row) do
         click_link('edit')
       end
-      
-      expect(page).to have_current_path('/cheatsheets/1/edit')
+      screenshot_and_save_page
+      first_cheatsheet = cheatsheets(:docker_compose)
+      expect(page).to have_current_path("/cheatsheets/#{first_cheatsheet.id}/edit")
     end
   end
 end

@@ -1,3 +1,4 @@
 sergio:
   name: Sergio
   password_digest: <%= BCrypt::Password.create('Pasodeti99') %>
+  email: 'a@b.com'
