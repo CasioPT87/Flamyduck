@@ -16,15 +16,17 @@ class Cheatsheet < ApplicationRecord
     end
   end
 
-  def updated_sorted_scenarios
+  def add_scenario_to_sort_list(scenario_id)
     order_scenarios ||= ""
     order = order_scenarios.split(",").map { |string_id| string_id.to_i }
-    scenario_ids_not_sorted = scenarios.select do |scenario|
-      order.find_index(scenario.id).nil?
-    end.map { |scenario| scenario.id }
-    order.push(*scenario_ids_not_sorted)
-    order.delete_if do |scenario_id|
-      scenarios.map(&:id).find_index(scenario_id).nil?
-    end
+    order.push(scenario_id)
+    self.update(order_scenarios: order.join(","))
+  end
+
+  def delete_scenario_from_sort_list(scenario_id)
+    order_scenarios ||= ""
+    order = order_scenarios.split(",").map { |string_id| string_id.to_i }
+    order.delete(scenario_id)
+    self.update(order_scenarios: order.join(","))
   end
 end

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   
   resources :cheatsheets do
-    resources :scenarios
+    resources :scenarios, only: [:update, :create, :destroy]
   end
 
   get 'login', to: 'sessions#new'

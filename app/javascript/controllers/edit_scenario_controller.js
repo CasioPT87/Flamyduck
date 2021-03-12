@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
 
-  static targets = ["showingScenarioWrapper", "editingScenarioWrapper", "hiddenDeleteScenario"];
+  static targets = ["showingScenarioWrapper", "editingScenarioWrapper"];
 
   initialize() {
     this.editing = false;
@@ -21,12 +21,10 @@ export default class extends Controller {
 
   change = () => {
     if (this.editing) {
-      this.hiddenDeleteScenarioTarget.firstElementChild.value = false;
       this.showingScenarioWrapperTarget.style.display = 'none';
-      this.editingScenarioWrapperTarget.style.display = 'block';
+      this.editingScenarioWrapperTarget.style.display = 'flex';
     } else {
-      this.hiddenDeleteScenarioTarget.firstElementChild.value = true;
-      this.showingScenarioWrapperTarget.style.display = 'block';
+      this.showingScenarioWrapperTarget.style.display = 'flex';
       this.editingScenarioWrapperTarget.style.display = 'none';
     }
   }
