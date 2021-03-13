@@ -30,7 +30,7 @@
       <% end %>
       <%# this form is to edit the scenario %>
       <%= form_with model: scenario, url: cheatsheet_scenario_path(@cheatsheet, scenario),
-        local: true, class: 'e-form e-form-scenario u--blue u--hidden',
+        local: true, class: 'e-form e-form-scenario u-padding--24 u--blue u--hidden',
         data: { 'edit-scenario-target' => "editingScenarioWrapper" } do |form|
       %>      
         <%= render partial: 'scenarios/edit_scenario', locals: { scenario_form: form } %>
