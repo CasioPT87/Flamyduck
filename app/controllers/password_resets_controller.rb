@@ -7,6 +7,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
+    debugger
     allowed_params = params.permit(:email)
     @user = User.find_by(email: allowed_params[:email])
     if @user
@@ -15,6 +16,7 @@ class PasswordResetsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'We couldn not find an user with that email'
+      redirect_to new_password_reset_path
     end
   end
 

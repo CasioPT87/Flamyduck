@@ -13,10 +13,12 @@ class User < ApplicationRecord
 
   validates :password, presence: true, allow_blank: false
   validates_length_of :password, :maximum => 15, :minimum => 6, allow_blank: false, allow_nil: false,
-    message: "Password must be within 6 and 15 characters"
-  validate :password_requirements_are_met
+    message: "Password must be within 6 and 15 characters", unless: :skip_password_validation
+  validate :password_requirements_are_met, unless: :skip_password_validation
 
   validates :email, presence: true, allow_blank: false, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+
+  attr_accessor :skip_password_validation
 
   def password_requirements_are_met
     rules = {
