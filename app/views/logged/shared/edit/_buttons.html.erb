@@ -8,7 +8,7 @@
   %>
   <%= link_to image_tag('delete-icon.png', class: 'e-image-edit'), 
     locals[:delete_path], method: :delete, data: {
-      confirm: "This will delete this cheatsheet. This action can not be undone", 'edit-buttons-target': 'button'
+      confirm: "This action can not be undone, are you sure of this?", 'edit-buttons-target': 'button'
     }, class: 'e-link e-link-image e-link-image-edit e-link-image-edit-animation', id: 'delete'
   %>
   <%= content_tag :a, content_tag(:div, ""),
