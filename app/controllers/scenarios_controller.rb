@@ -1,6 +1,6 @@
 class ScenariosController < ApplicationController
   before_action :authorized
-  before_action :set_entities, only: [:update, :create, :destroy]
+  before_action :set_entities, only: [:update, :destroy]
 
   def update
     cheatsheet = @scenario.cheatsheet
@@ -14,7 +14,26 @@ class ScenariosController < ApplicationController
   end
 
   def create
-    debugger
+    create_scenario_params = params.require(:scenario).permit(:content, :example)
+    cheatsheet = Cheatsheet.find(params[:cheatsheet_id])
+    scenario = Scenario.new(create_scenario_params)
+    scenario.cheatsheet = cheatsheet
+    set_group
+    if scenario.save
+      flash[:notice] = 'Scenario created'
+      if @group.nil?
+        redirect_to cheatsheet_path(cheatsheet)
+      else
+        redirect_to group_cheatsheet_path(@group, cheatsheet)
+      end
+    else
+      flash[:alert] = "Couldn't create scenario"
+      if @group.nil?
+        redirect_to cheatsheet_path(cheatsheet)
+      else
+        redirect_to group_cheatsheet_path(@group, cheatsheet)
+      end
+    end
   end
 
   def destroy
@@ -41,8 +60,12 @@ class ScenariosController < ApplicationController
   def set_entities
     @scenario = Scenario.find(params[:id])
     @cheatsheet = @scenario.cheatsheet
+    set_group
+  end
+
+  def set_group
     group_id = params[:group_id]
-    @group = group_id.empty? ? nil : Group.find(group_id)
+    @group = group_id.blank? ? nil : Group.find(group_id)
   end
 
   def scenario_params

@@ -41,7 +41,7 @@
 
 <%# and this is to create a new scenario %>
 <div data-controller='add-scenario' class="o-container u-width--all">
-  <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet } %>
+  <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet, group: @group } %>
   <%= image_tag 'add-icon.png', class: 'e-image-scenario-add', data: { 
      action: 'click->add-scenario#toggle'
     } %>
