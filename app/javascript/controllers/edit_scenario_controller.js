@@ -20,10 +20,13 @@ export default class extends Controller {
   }
 
   change = () => {
+    const parent = this.showingScenarioWrapperTarget.parentElement;
     if (this.editing) {
+      parent.setAttribute('draggable', false);
       this.showingScenarioWrapperTarget.style.display = 'none';
       this.editingScenarioWrapperTarget.style.display = 'flex';
     } else {
+      parent.setAttribute('draggable', true);
       this.showingScenarioWrapperTarget.style.display = 'flex';
       this.editingScenarioWrapperTarget.style.display = 'none';
     }
