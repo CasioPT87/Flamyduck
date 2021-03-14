@@ -7,7 +7,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    debugger
     allowed_params = params.permit(:email)
     @user = User.find_by(email: allowed_params[:email])
     if @user
