@@ -20,6 +20,7 @@ class ScenariosController < ApplicationController
     scenario.cheatsheet = cheatsheet
     set_group
     if scenario.save
+      cheatsheet.add_scenario_to_sort_list(scenario.id)
       flash[:notice] = 'Scenario created'
       if @group.nil?
         redirect_to cheatsheet_path(cheatsheet)

@@ -16,16 +16,16 @@ class Cheatsheet < ApplicationRecord
   end
 
   def add_scenario_to_sort_list(scenario_id)
-    order_scenarios ||= ""
-    order = order_scenarios.split(",").map { |string_id| string_id.to_i }
-    order.push(scenario_id)
-    self.update(order_scenarios: order.join(","))
+    order = order_scenarios ? order_scenarios.split(",") : []
+    order_ids = order.map { |string_id| string_id.to_i }
+    order_ids.push(scenario_id)
+    self.update(order_scenarios: order_ids.join(","))
   end
 
   def delete_scenario_from_sort_list(scenario_id)
-    order_scenarios ||= ""
-    order = order_scenarios.split(",").map { |string_id| string_id.to_i }
-    order.delete(scenario_id)
-    self.update(order_scenarios: order.join(","))
+    order = order_scenarios ? order_scenarios.split(",") : []
+    order_ids = order.map { |string_id| string_id.to_i }
+    order_ids.delete(scenario_id)
+    self.update(order_scenarios: order_ids.join(","))
   end
 end
