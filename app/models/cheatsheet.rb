@@ -9,8 +9,7 @@ class Cheatsheet < ApplicationRecord
   accepts_nested_attributes_for :scenarios, allow_destroy: true
 
   def sorted_scenarios
-    order_scenarios ||= ""
-    order = order_scenarios.split(",")
+    order = order_scenarios ? order_scenarios.split(",") : []
     scenarios.sort do |a, b|
       order.find_index(a.id.to_s) <=> order.find_index(b.id.to_s)
     end
