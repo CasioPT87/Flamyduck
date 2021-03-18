@@ -75,4 +75,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << "github-action-deploy-d4ydrepnqa-ew.a.run.app"
+  config.hosts << "flamyduck.com"
 end
