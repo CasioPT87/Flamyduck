@@ -2,8 +2,10 @@ docker_compose:
   name: docker-compose
   user: sergio
   groups: docker
+  order_scenarios: null
 
 docker:
   name: docker
   user: sergio
   groups: docker
+  order_scenarios: null
