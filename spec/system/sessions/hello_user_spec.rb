@@ -2,16 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
   
-  it "logs in" do 
-     
-    visit '/login'
+  context 'Trying to log in' do
 
-    fill_in('Name', with: 'Sergio')
-    fill_in('Password', with: 'Pasodeti99')
-    click_button('Log in')
+    it "succeeds" do 
+      visit '/login'
 
-    expect(page).to have_current_path(root_path)
+      fill_in('Name', with: 'Sergio')
+      fill_in('Password', with: 'Pasodeti99')
+      click_button('Log in')
 
-    expect(page).to have_selector('p', text: 'Hi, Sergio')
+      expect(page).to have_current_path(root_path)
+      expect(page).to have_selector('p', text: 'Hi, Sergio')
+    end
   end
 end
