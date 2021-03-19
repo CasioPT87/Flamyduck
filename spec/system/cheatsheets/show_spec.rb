@@ -46,18 +46,103 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
 
       expect(page.body.index(second_scenario.content)).to be < page.body.index(first_scenario.content)
     end
+
+    it "sorts scenarios with drag and drop", :js do
+      visit "/cheatsheets/#{subject.id}"
+      first_scenario = scenarios(:bash)
+      second_scenario = scenarios(:build)
+
+      source = find('p', text: first_scenario.content)
+      target = find('p', text: second_scenario.content)
+
+      source.drag_to(target)
+
+      expect(page.body.index(first_scenario.content)).to be < page.body.index(second_scenario.content)
+    end
+
+    it "scenarios keep sorted after page refreshes", :js do
+      visit "/cheatsheets/#{subject.id}"
+      first_scenario = scenarios(:bash)
+      second_scenario = scenarios(:build)
+
+      source = find('p', text: first_scenario.content)
+      target = find('p', text: second_scenario.content)
+
+      source.drag_to(target)
+
+      page.driver.browser.navigate.refresh
+
+      expect(page.body.index(first_scenario.content)).to be < page.body.index(second_scenario.content)
+    end
   end
 
-  # context "Click 'edit' button" do
+  context "Create scenario" do
 
-  #   it "directs to edit cheatsheet page" do
-  #     visit '/cheatsheets'
-  #     docker_compose_cheatsheet_row = first('.o-wrapper-cheatsheets')
-  #     within(docker_compose_cheatsheet_row) do
-  #       click_link('edit')
-  #     end
-  #     first_cheatsheet = cheatsheets(:docker_compose)
-  #     expect(page).to have_current_path("/cheatsheets/#{first_cheatsheet.id}/edit")
-  #   end
-  # end
+    it "adds scenario at the bottom of the list" do
+      visit "/cheatsheets/#{subject.id}"
+
+      all_scenarios = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      expect(all_scenarios.count).to be(2)
+
+      first_scenario = scenarios(:bash)
+      second_scenario = scenarios(:build)
+
+      subject.order_scenarios = "#{first_scenario.id},#{second_scenario.id}"
+      subject.save
+
+      add_button = find('.e-image-scenario-add').click
+      fill_in('content for new scenario', with: 'whatever content for the scenario')
+      click_button 'Create'
+
+      all_scenarios = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      expect(all_scenarios.count).to be(3)
+
+      scenario_created = subject.scenarios.last
+
+      expect(page.body.index(scenario_created.content)).to be > page.body.index(second_scenario.content)
+      expect(page.body.index(scenario_created.content)).to be > page.body.index(first_scenario.content) 
+    end
+  end
+
+  context "Delete scenario" do
+
+    it "removes scenario from list", js: true do
+      visit "/cheatsheets/#{subject.id}"
+
+      all_scenarios_beginning = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      expect(all_scenarios_beginning.count).to be(2)
+
+      first_row = first('.o-wrapper-scenario')
+      first_row.hover
+
+      within(first_row) {
+        click_on('delete scenario')
+      }
+
+      all_scenarios_end = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      expect(all_scenarios_end.count).to be(1)    
+    end
+  end
+
+  context "Edit scenario" do
+
+    it "changes scenario", js: true do
+      visit "/cheatsheets/#{subject.id}"
+
+      first_row = first('.o-wrapper-scenario')
+      first_row.hover
+
+      within(first_row) {
+        find("img[alt='edit scenario']").click
+      }
+
+      first('#scenario_content').set('this is new content')
+      click_on('Update')
+
+      edited_scenario = find('p', text: 'this is new content')
+
+      all_scenarios_end = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      expect(!!edited_scenario).to be(true)
+    end
+  end
 end

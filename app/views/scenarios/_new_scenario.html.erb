@@ -1,8 +1,8 @@
 <div data-add-scenario-target='form' class="o-container o-container-scenario o-wrapper-scenario u--salmon u--hidden">
   <%= form_with model: [cheatsheet, Scenario.new], local: true, url: "#{cheatsheet_scenarios_path(cheatsheet, Scenario.new)}?group_id=#{group&.id}",
     method: :post, class: 'e-form e-form-scenario' do |form|  %>
-    <%= form.text_field :content, class: 'e-input' %>
+    <%= form.text_field :content, class: 'e-input', placeholder: 'content for new scenario' %>
     <%= form.rich_text_area :example %>
-    <%= form.submit 'create', class: 'e-button e-button-submit' %>
+    <%= form.submit 'Create', class: 'e-button e-button-submit' %>
   <% end %>
 </div>
