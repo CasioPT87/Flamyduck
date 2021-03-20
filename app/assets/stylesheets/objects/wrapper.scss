@@ -1,3 +1,4 @@
+@import 'tools';
 
 .o-wrapper-cheatsheets, .o-wrapper-groups {
   display: flex;
@@ -6,9 +7,9 @@
 .o-wrapper-scenario {
   display: flex;
   width: 100%;
-  padding: 24px;
-  margin: 8px;
-  border-radius: 4px;
+  padding: rythm(3);
+  margin: rythm(1) 0px;
+  border-radius: rythm(1);
 
   &:hover {
     .o-container-scenario-edit-buttons {

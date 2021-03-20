@@ -1,11 +1,12 @@
+@import 'tools';
 
 .e-flash {
   position: fixed;
   display: flex;
   bottom: 0;
-  height: 85px;
+  height: rythm(7);
   width: 95%;
-  max-width: 400px;
+  max-width: rythm(50);
   right: 0;
   left: 0;  
   justify-content: center;
@@ -13,8 +14,8 @@
   align-self: center;
   justify-self: center;
   margin: auto;
-  margin-bottom: 16px;
-  padding: 16px;
-  border: 3px solid;
-  background-color: white;
+  margin-bottom: rythm(2);
+  border-radius: rythm(1);
+  background-color: $success;
+  color: $lightest;
 }

@@ -1,3 +1,5 @@
+@import 'tools';
+
 .o-container {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,6 @@
 }
 
 .o-container-nav {
-  margin-bottom: 20px;
 }
 
 .o-container-buttons-nav {
@@ -21,9 +22,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 500px;
-  margin: 0 20px 0 20px;
-  padding: 0 20px 0 20px;
+  max-width: rythm(60);
+  margin: 0 rythm(3) 0 rythm(3);
+  padding: 0 rythm(3) 0 rythm(3);
 }
 
 .o-container-buttons-edit {
@@ -33,13 +34,14 @@
 
 .o-container-scenario-item {
   width: 100%;
-  padding: 8px;
-  background-color: white;
+  padding: rythm(1);
+  background-color: $lightest;
+  border-radius: rythm(1);
 }
 
 .o-container-scenario {
   width: 100%;
-  max-width: 900px;
+  max-width: rythm(110);
 }
 
 .o-container-scenario-droppable {
@@ -57,8 +59,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: rythm(4);
     cursor: pointer;
-    margin: 5px 0 0 5px;
+    margin: rythm(1) 0 0 rythm(1);
   }
 }

@@ -79,10 +79,10 @@ export default class extends Controller {
   }
   
   addOnHoverStyles = (element) => {
-    element.style.backgroundColor = 'black';
+    element.firstElementChild.style.boxShadow = '5px 5px 15px 5px #000000';
   }
 
   removeOnHoverStyles = (element) => {
-    element.style.backgroundColor = 'transparent';
+    element.firstElementChild.style.boxShadow = 'none';
   }
 }

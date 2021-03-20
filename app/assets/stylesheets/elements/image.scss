@@ -1,12 +1,14 @@
+@import 'tools';
+
 .e-image-edit {
-  height: 25px;
-  width: 25px;
+  height: rythm(3);
+  width: rythm(3);
 }
 
 .e-image-scenario-add {
   position: fixed;
-  height: 50px;
-  bottom: 5px;
+  height: rythm(6);
+  bottom: rythm(6);
   right: 0;
   cursor: pointer;
 }

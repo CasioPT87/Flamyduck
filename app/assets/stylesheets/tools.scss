@@ -1,0 +1,14 @@
+
+$light: #dddddd;
+$middle: #a52a2a;
+$heavy: #30475e;
+$dark: #222831;
+$lightest: #ffffff;
+$success: #29A5A4;
+$fail: #d4201a;
+
+$beat: 8px;
+
+@function rythm($times) {
+  @return $times * $beat;
+}

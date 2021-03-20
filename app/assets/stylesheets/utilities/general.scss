@@ -1,13 +1,15 @@
+@import 'tools';
+
 .u--hidden {
   display: none;
 }
 
 .u--salmon {
-  background: #ffa8a8;
+  background: $dark;
 }
 
 .u--blue {
-  background-color: #aaaaff;
+  background-color: $heavy;
 }
 
 .u-margin--4 {

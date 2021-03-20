@@ -1,10 +1,11 @@
+@import 'tools';
 
 .u-flash--notice {
-  color: green;
-  border-color: green;
+  border-color: $success;
+  background-color: $success;
 }
 
 .u-flash--alert {
-  color: red;
-  border-color: red;
+  border-color: $fail;
+  background-color: $fail;
 }

@@ -1,8 +1,10 @@
+@import 'tools';
+
 .e-nav {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #fa8072;
+  padding: rythm(2);
+  background-color: $heavy;
 }
 
 .e-nav-cheatsheet-change {

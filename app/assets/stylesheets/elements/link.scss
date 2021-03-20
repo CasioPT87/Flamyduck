@@ -1,28 +1,29 @@
+@import 'tools';
 
 .e-link {
   text-decoration: none;
-  color: white;
+  color: $lightest;
 }
 
 .e-link-nav {
-  padding: 32px;
+  padding: rythm(4);
   text-align: center;
 }
 
 .e-link-forgot-password {
-  padding-top: 16px;
-  color: #2b394a;
+  padding-top: rythm(2);
+  color: $dark;
 }
 
 .e-link-list {
-  padding: 20px 20px;
+  display: flex;
   text-align: center;
   text-decoration: none;
-  border: 1px solid;
-  color: black;
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px 20px;
+  color: $dark;
+  background-color: $lightest;
+  border-radius: rythm(1);
+  padding: rythm(2);
+  min-width: rythm(24)
 }
 
 .e-link-image {
@@ -35,11 +36,10 @@
 
 .e-link-image-edit {
   position: absolute;
-  height: 34px;
-  width: 34px;
-  border-radius: 20px;
-  margin-left: 5px;
-  background-color: #f5f5f5;
+  height: rythm(4);
+  width: rythm(4);
+  border-radius: rythm(3);
+  margin-left: rythm(1);
 }
 
 .e-link-image-edit-animation {

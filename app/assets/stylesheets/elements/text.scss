@@ -1,8 +1,10 @@
+@import 'tools';
+
 .e-text-user-name {
   position: absolute;
-  right: 40px;
+  right: rythm(6);
 }
 
 .e-text-scenario-content {
-  padding: 4px;
+  padding: rythm(1);
 }

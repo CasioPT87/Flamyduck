@@ -1,3 +1,4 @@
+@import 'tools';
 
 .e-form {
   display: flex;
@@ -6,12 +7,14 @@
 
 .e-form-insert {
   width: 100%;
-  max-width: 500px;
-  margin: 0 20px 0 20px;
-  padding: 0 20px 0 20px;
+  max-width: rythm(60);
+  margin: 0 rythm(3) 0 rythm(3);
+  padding: 0 rythm(3) 0 rythm(3);
 }
 
 .e-form-scenario {
   width: 100%;
-  max-width: 900px;
+  margin: rythm(1) 0px;
+  max-width: rythm(110);
+  border-radius: rythm(1);
 }
