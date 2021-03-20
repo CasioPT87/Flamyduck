@@ -1,7 +1,7 @@
-<h1 class="e-title e-title-1">Edit Group</h1>
+<h1 class="e-title">Edit Group</h1>
 <%= form_with model: @group, method: :patch, local: true, class: 'e-form e-form-insert' do |form| %>
   <%= form.text_field :name, class: 'e-input' %>
-  <h5 class="e-title e-title-1">Select the cheatsheets to be in this group</h5>
+  <h5 class="e-title">Select the cheatsheets to be in this group</h5>
   <% if @cheatsheets.any? %>
     <%= form.collection_check_boxes(:cheatsheet_ids, @cheatsheets, :id, :name) do |b| %>
       <div>
