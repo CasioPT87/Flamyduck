@@ -1,5 +1,5 @@
 <nav class="o-container-nav e-nav">
-  <%= link_to image_tag('logo.png', :class => "u-image--logo"), "/" %>
+  <%= link_to image_tag('logo.png', :class => "u-image--logo"), "/", class: 'o-container-logo' %>
   <div class="o-container-buttons-nav">
     <% if logged_in? %>
       <%= link_to "Cheatsheets", '/cheatsheets', method: :get, class: 'e-link e-link-nav' %>
