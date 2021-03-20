@@ -50,6 +50,10 @@
   width: 100%;
 }
 
+.o-container-scenario-droppable:last-child {
+  margin-bottom: rythm(10);
+}
+
 .o-container-scenario-edit-buttons {
   display: none;
   flex-direction: column;
