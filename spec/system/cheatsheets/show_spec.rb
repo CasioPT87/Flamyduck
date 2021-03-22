@@ -144,5 +144,23 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
       all_scenarios_end = all('.o-container-scenario-droppable .o-wrapper-scenario')
       expect(!!edited_scenario).to be(true)
     end
+
+    it "in a group redirects back to the group cheatsheet page", js: true do
+      group = groups(:docker)
+      visit "/groups/#{group.id}/cheatsheets/#{subject.id}"
+
+      first_row = first('.o-wrapper-scenario')
+      first_row.hover
+
+      within(first_row) {
+        find("img[alt='edit scenario']").click
+      }
+
+      first('#scenario_content').set('this is new content')
+      click_on('Update')
+
+      
+      expect(page).to have_current_path("/groups/#{group.id}/cheatsheets/#{subject.id}")
+    end
   end
 end

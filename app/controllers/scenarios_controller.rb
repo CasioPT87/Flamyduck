@@ -6,10 +6,13 @@ class ScenariosController < ApplicationController
     cheatsheet = @scenario.cheatsheet
     if @scenario.update(scenario_params)
       flash[:notice] = 'Edited successfully'
-      redirect_to cheatsheet_path(cheatsheet)
     else
       flash[:alert] = @scenario.errors.full_messages.join(', ')
+    end
+    if @group.nil?
       redirect_to cheatsheet_path(cheatsheet)
+    else
+      redirect_to group_cheatsheet_path(@group, cheatsheet)
     end
   end
 

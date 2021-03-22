@@ -29,7 +29,7 @@
         <%= image_tag 'edit-icon.png', data: { action: "click->edit-scenario#toggle" }, alt: 'edit scenario' %>
       <% end %>
       <%# this form is to edit the scenario %>
-      <%= form_with model: scenario, url: cheatsheet_scenario_path(@cheatsheet, scenario),
+      <%= form_with model: scenario, url: "#{cheatsheet_scenario_path(@cheatsheet, scenario)}?group_id=#{@group&.id}",
         local: true, class: 'e-form e-form-scenario u-padding--24 u--blue u--hidden',
         data: { 'edit-scenario-target' => "editingScenarioWrapper" } do |form|
       %>      
