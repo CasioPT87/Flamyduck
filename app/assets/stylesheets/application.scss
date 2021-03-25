@@ -14,5 +14,21 @@
  *= require_self
  */
 
+//  generic
+@import 'generic/reset';
+
+//  elements -general stuff, general font, color, etc...-
+@import 'elements/page';
+
+//  objects -containers and wrappers-
+@import 'objects/container';
+
+//  components -like forms, inputs and all that-
+@import 'components/form';
+@import 'components/input';
+@import 'components/buttom';
+
+//  utilities -widths, sizes, active- basically anything that you want to lay on top of the component
+// @import 'utilities/widths'
 
 

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :scenarios, only: [:update, :create, :destroy]
   end
 
+  # resource :session, only: %i[new create destroy]
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

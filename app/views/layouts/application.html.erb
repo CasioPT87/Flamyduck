@@ -15,7 +15,7 @@
 
   <body>
     <%= render "/layouts/top_bar" %>
-    <div class="o-container">
+    <div class="<%= ['o-container', *yield(:container_classes)].join(' ') %>">
       <% if logged_in? %>
         <p class="e-text-user-name">Hi, <%= current_user.name %></p>
       <% end %>
