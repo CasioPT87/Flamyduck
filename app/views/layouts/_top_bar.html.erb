@@ -1,14 +1,16 @@
-<nav class="o-container-nav e-nav">
-  <%= link_to image_tag('logo.png', :class => "u-image--logo"), "/", class: 'o-container-logo' %>
-  <div class="o-container-buttons-nav">
+
+
+<nav class="o-container c-nav">
+  <%= link_to image_tag('logo.png', :class => "c-image c-image__logo"), "/", class: 'o-container__logo' %>
+  <div class="o-grid o-grid--justify-end">
     <% if logged_in? %>
-      <%= link_to "Cheatsheets", '/cheatsheets', method: :get, class: 'e-link e-link-nav' %>
-      <%= link_to "Groups", '/groups', method: :get, class: 'e-link e-link-nav' %>
-      <%= link_to "Account", edit_user_path(current_user), method: :get, class: 'e-link e-link-nav' %>
-      <%= link_to "Logout", '/logout', method: :delete, class: 'e-link e-link-nav' %>
+      <%= link_to "Cheatsheets", '/cheatsheets', method: :get, class: 'c-link c-link-nav' %>
+      <%= link_to "Groups", '/groups', method: :get, class: 'c-link c-link-nav' %>
+      <%= link_to "Account", edit_user_path(current_user), method: :get, class: 'c-link c-link-nav' %>
+      <%= link_to "Logout", '/logout', method: :delete, class: 'c-link c-link-nav' %>
     <%else%>
-      <%= link_to "Login", '/login', method: :get, class: 'e-link e-link-nav' %>
-      <%= link_to "Sign Up", '/users/new', method: :get, class: 'e-link e-link-nav' %>
+      <%= link_to "Login", '/login', method: :get, class: 'c-link c-link-nav' %>
+      <%= link_to "Sign Up", '/users/new', method: :get, class: 'c-link c-link-nav' %>
     <%end%>
   </div>
 </nav>

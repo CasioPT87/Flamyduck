@@ -1,45 +1,13 @@
 @import 'tools';
 
-.e-link {
+.c-link {
   text-decoration: none;
   color: $lightest;
 }
 
-.e-link-nav {
+.c-link-nav {
   padding: rythm(4);
   text-align: center;
-}
-
-.e-link-forgot-password {
-  padding-top: rythm(2);
-  color: $dark;
-}
-
-.e-link-list {
-  display: flex;
-  text-align: center;
-  text-decoration: none;
-  color: $dark;
-  background-color: $lightest;
-  border-radius: rythm(1);
-  padding: rythm(2);
-  min-width: rythm(24)
-}
-
-.e-link-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-  cursor: pointer;
-  background-size: cover;
-}
-
-.e-link-image-edit {
-  position: absolute;
-  height: rythm(4);
-  width: rythm(4);
-  border-radius: rythm(3);
-  margin-left: rythm(1);
 }
 
 .e-link-image-edit-animation {

@@ -1,0 +1,18 @@
+.o-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-grid__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.o-grid--justify-end {
+  justify-content: end;
+}
+
+.o-grid--justify-center {
+  justify-content: center;
+}

@@ -1,8 +1,16 @@
 @import 'tools';
 
-.e-text-user-name {
+.c-text {
+  text-align: center;
+}
+
+.c-text__user_name {
   position: absolute;
-  right: rythm(6);
+  right: rythm(0);
+}
+
+.c-text__title {
+  padding: rythm(8) rythm(0) rythm(8) rythm(0);
 }
 
 .e-text-scenario-content {

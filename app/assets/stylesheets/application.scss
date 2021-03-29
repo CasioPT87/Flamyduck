@@ -1,18 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+//  tools
+@import 'tools';
 
 //  generic
 @import 'generic/reset';
@@ -22,13 +9,17 @@
 
 //  objects -containers and wrappers-
 @import 'objects/container';
+@import 'objects/wrapper';
+@import 'objects/grid';
 
 //  components -like forms, inputs and all that-
-@import 'components/form';
-@import 'components/input';
-@import 'components/buttom';
+@import 'components/field';
+@import 'components/link';
+@import 'components/image';
+@import 'components/navbar';
+@import 'components/text';
 
 //  utilities -widths, sizes, active- basically anything that you want to lay on top of the component
-// @import 'utilities/widths'
+@import 'utilities/padding'
 
 
