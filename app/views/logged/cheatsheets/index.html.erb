@@ -1,25 +1,27 @@
-<h1 class="e-title">Cheatsheets</h1>
+<% content_for :container_classes, 'o-container--narrow' %>
 
-<div class="o-container-cheatsheets">
-  <%= link_to "Create New Cheatsheet", '/cheatsheets/new', method: :get, class: 'e-button e-button-submit' %>
+<h1 class="c-text c-text__title">Cheatsheets</h1>
 
-  <% if @cheatsheets.empty? %>
-    <p>You haven't created any yet</p>
-  <% else %>
-    <ul class="e-unordered-list">
-      <% @cheatsheets.each do |cheatsheet| %>
-        <li class="e-list-item">
-          <div class="o-wrapper-cheatsheets">
-            <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet), class: 'e-link-list' %>
-            <%= render 'logged/shared/edit/buttons', locals: {
-              object: cheatsheet,
-              edit_path: edit_cheatsheet_path(cheatsheet),
-              delete_path: cheatsheet_path(cheatsheet) } %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+<div class="o-grid o-grid--justify-center">
+  <%= link_to "Create New Cheatsheet", '/cheatsheets/new', method: :get, class: 'c-button c-button-submit' %>
 </div>
+
+<% if @cheatsheets.empty? %>
+  <h3 class="c-text c-text__title">You haven't created any yet</h3>
+<% else %>
+  <ol class="c-list-items">
+    <% @cheatsheets.each do |cheatsheet| %>
+      <li class="o-grid o-grid--justify-start c-list-items__item">
+        <%= link_to cheatsheet.name, cheatsheet_path(cheatsheet), class: 'c-link c-link__list' %>
+        <%= render 'logged/shared/edit/buttons', locals: {
+          object: cheatsheet,
+          edit_path: edit_cheatsheet_path(cheatsheet),
+          delete_path: cheatsheet_path(cheatsheet)
+        } %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
+
 
 

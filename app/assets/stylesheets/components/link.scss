@@ -1,6 +1,7 @@
 @import 'tools';
 
 .c-link {
+  cursor: pointer;
   text-decoration: none;
   color: $lightest;
 }
@@ -14,8 +15,20 @@
   color: $dark;
 }
 
-.e-link-image-edit-animation {
-  transition-property: margin-left;
-  transition-duration: 0.5s;
+.c-link__list {
+  padding: rythm(2);
+  color: $dark;
+  background-color: $lightest;
+  border-radius: rythm(1);
+  margin-bottom: rythm(1);
+  min-width: rythm(40)
+}
+
+.c-link__list--left-arrow {
+  background-image: image_url("left-arrow-icon.png")
+}
+
+.c-link__list--right-arrow {
+  background-image: image_url("right-arrow-icon.png")
 }
 

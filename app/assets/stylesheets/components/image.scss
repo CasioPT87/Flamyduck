@@ -4,3 +4,20 @@
   height: rythm(10);
   width: rythm(9);
 }
+
+.c-images-edit {
+
+}
+
+.c-images-edit__image {
+  position: absolute;
+  height: rythm(4);
+  width: rythm(4);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.c-images-edit__image--animation {
+  transition-property: margin-left;
+  transition-duration: 0.5s;
+}

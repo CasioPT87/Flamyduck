@@ -31,11 +31,11 @@ export default class extends Controller {
   changeArrow = () => {
     const target = this.lastButtonTarget();
     if (this.opened) {
-      target.classList.add('u-link-image-edit-toggle--left');
-      target.classList.remove('u-link-image-edit-toggle--right');
+      target.classList.add('c-link__list--left-arrow');
+      target.classList.remove('c-link__list--right-arrow');
     } else {
-      target.classList.add('u-link-image-edit-toggle--right');
-      target.classList.remove('u-link-image-edit-toggle--left');
+      target.classList.add('c-link__list--right-arrow');
+      target.classList.remove('c-link__list--left-arrow');
     }
   }
 }
