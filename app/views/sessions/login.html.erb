@@ -1,20 +1,20 @@
 <% content_for :container_classes, 'o-container--narrow' %>
 
-<h1 class="e-title">Log in</h1>
+<h1 class="c-text c-text__title">Log in</h1>
 
-<%= form_tag '/login', class: 'e-form ' do %>
-   <ol class="o-grid c-fields c-fields--tight">
-      <li class="o-grid__item c-fields__item u-half">
-         <%= text_field_tag :name, nil, placeholder: "Name", class: 'e-input' %>
+<%= form_tag '/login', class: 'c-form' do %>
+   <ol class="c-form_fields">
+      <li class="o-grid o-grid--column c-form_fields__item">
+         <%= text_field_tag :name, nil, placeholder: "Name", class: 'c-input' %>
       </li>
-      <li class="o-grid__item c-fields__item u-half">
-         <%= password_field_tag :password, nil, placeholder: "Password", class: 'e-input' %>
+      <li class="o-grid o-grid--column c-form_fields__item">
+         <%= password_field_tag :password, nil, placeholder: "Password", class: 'c-input' %>
       </li>
-      <li class="o-grid__item c-fields__item">
-         <%= submit_tag "Log in", class: 'e-button e-button-submit' %>
+      <li class="o-grid o-grid--column c-form_fields__item">
+         <%= submit_tag "Log in", class: 'c-button c-button-submit' %>
       </li>
    </ol>
 <%end%>
-<%= link_to 'forgot your password?', new_password_reset_path, class: 'c-link c-link-forgot-password' %>
+<%= link_to 'forgot your password?', new_password_reset_path, class: 'c-link o-grid o-grid--justify-center c-link__password-recovery' %>
 
 <%# modifiers only on the block -normally- %>

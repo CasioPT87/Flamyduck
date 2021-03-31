@@ -1,20 +1,5 @@
 @import 'tools';
 
-.e-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.e-form-insert {
-  width: 100%;
-  max-width: rythm(60);
-  margin: 0 rythm(3) 0 rythm(3);
-  padding: 0 rythm(3) 0 rythm(3);
-}
-
-.e-form-scenario {
-  width: 100%;
-  margin: rythm(1) 0px;
-  max-width: rythm(110);
-  border-radius: rythm(1);
+.c-form_fields__item {
+  margin-bottom: rythm(2);
 }

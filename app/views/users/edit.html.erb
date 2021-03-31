@@ -1,7 +1,20 @@
-<h1 class="e-title">Edit user</h1>
-<%= form_with model: @user, class: 'e-form e-form-insert' do |f| %>
-  <%= f.text_field :name, placeholder: "Name", class: 'e-input' %>
-  <%= f.password_field :password, placeholder: "Password", class: 'e-input' %>
-  <%= f.text_field :email, placeholder: "Email", class: 'e-input' %>
-  <%= f.submit 'Edit User', class: 'e-button e-button-submit' %>
+<% content_for :container_classes, 'o-container--narrow' %>
+
+<h1 class="c-text c-text__title">Edit user</h1>
+
+<%= form_with model: @user, class: 'c-form' do |f| %>
+  <ol class="c-form_fields">
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= f.text_field :name, placeholder: "Name", class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= f.password_field :password, placeholder: "Password", class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= f.text_field :email, placeholder: "Email", class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= f.submit 'Edit User', class: 'c-button c-button-submit' %>
+    </li>
+  </ol>
 <% end %>

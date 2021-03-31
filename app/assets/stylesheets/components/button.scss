@@ -1,18 +1,17 @@
 @import 'tools';
 
-.e-button {
+.c-button {
   width: 100%;
   border: 0;
   border-radius: rythm(1);
-  padding: rythm(3);
-  margin-top: rythm(3);
-}
-
-.e-button-submit {
-  background-color: $middle;
-  color: $lightest;
+  padding: rythm(2);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   font-size: rythm(2);
+}
+
+.c-button-submit {
+  background-color: $middle;
+  color: $lightest;
 }

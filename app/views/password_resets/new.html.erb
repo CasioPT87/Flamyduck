@@ -1,5 +1,14 @@
-<h3 class="e-title">Please introduce your email and we will send you an email to set your password</h3>
-<%= form_tag password_resets_path, method: :post, class: 'e-form e-form-insert' do %>
-   <%= email_field_tag :email, nil, placeholder: "Email", class: 'e-input' %>
-   <%= submit_tag "Send", class: 'e-button e-button-submit' %>
+<% content_for :container_classes, 'o-container--narrow' %>
+
+<h3 class="c-text c-text__title">Please introduce your email and we will send you an email to set your password</h3>
+
+<%= form_tag password_resets_path, method: :post, class: 'c-form' do %>
+   <ol class="c-form_fields">
+      <li class="o-grid o-grid--column c-form_fields__item">
+         <%= email_field_tag :email, nil, placeholder: "Email", class: 'c-input' %>
+      </li>
+      <li class="o-grid o-grid--column c-form_fields__item">
+         <%= submit_tag "Send", class: 'c-button c-button-submit' %>
+      </li>
+   </ol>
 <%end%>
