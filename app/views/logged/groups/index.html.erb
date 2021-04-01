@@ -1,28 +1,29 @@
-<h1 class="e-title">Groups</h1>
+<% content_for :container_classes, 'o-container--narrow' %>
 
-<div class="o-container-groups">
-  <%= link_to "Create New Group", '/groups/new', method: :get, class: 'e-button e-button-submit' %>
+<h1 class="c-text c-text__title">Groups</h1>
+
+<div class="o-grid o-grid--justify-center">
+  <%= link_to "Create New Group", '/groups/new', method: :get, class: 'c-button c-button-submit' %>
+</div>
 
   <% if @groups.empty? %>
-    <p>You haven't created any yet</p>
+    <h3 class="c-text c-text__title">You haven't created any yet</h3>
   <% else %>
-    <ul class="e-unordered-list">
+    <ol class="c-list-items">
       <% @groups.each do |group| %>
-        <li class="e-list-item">
-          <div class="o-wrapper-groups">
-            <% if group.cheatsheets.empty? %>
-              <%= link_to group.name, '#', class: 'e-link-list' %>
-            <% else%>
-              <%= link_to group.name, [group, group.cheatsheets.first], class: 'e-link-list' %>
-            <% end%>
-            <%= render 'logged/shared/edit/buttons', locals: {
-              object: group,
-              edit_path: edit_group_path(group),
-              delete_path: group_path(group) } %>
-          </div>
+        <li class="o-grid o-grid--justify-start c-list-items__item">
+          <% if group.cheatsheets.empty? %>
+            <%= link_to group.name, '#', class: 'c-link c-link__list' %>
+          <% else%>
+            <%= link_to group.name, [group, group.cheatsheets.first], class: 'c-link c-link__list' %>
+          <% end%>
+          <%= render 'logged/shared/edit/buttons', locals: {
+            object: group,
+            edit_path: edit_group_path(group),
+            delete_path: group_path(group) } %>    
         </li>
       <% end %>
-    </ul>
+    </ol>
   <% end %>
 </div>
 
