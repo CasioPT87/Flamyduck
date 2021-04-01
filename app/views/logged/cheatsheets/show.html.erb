@@ -1,3 +1,4 @@
+<% content_for :container_classes, 'o-container--narrow' %>
 
 <% if @group %>
   <nav class='e-nav e-nav-cheatsheet-change'>
@@ -11,40 +12,40 @@
   </nav>
 <% end %>
 
-<h1 class="e-title"><%= @cheatsheet.name %></h1>
+<h1 class="c-text c-text__title"><%= @cheatsheet.name %></h1>
 
 <% if @cheatsheet.scenarios.empty? %>
-  <h3 class="e-title">You haven't created scenarios for this cheatsheet. Click the 'plus' button at the button to add some.</h3>
+  <h3 class="c-text c-text__title">You haven't created scenarios for this cheatsheet</h3>
+  <h3 class="c-text c-text__title">Click the 'plus' button at the button to add some</h3>
 <% end %>
 
-<div class="o-container o-container-scenario" data-controller="drag-item"
+<div class="o-grid o-grid--column c-scenarios" data-controller="drag-item"
   data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend"
 >
   <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
 
-    <div class="o-container-scenario-droppable" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
+    <div class="o-grid" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
       <%# this shows the scenario %>
       <%= render 'scenarios/scenario', scenario: scenario do %>
-        <%= link_to image_tag("delete-icon.png", alt: 'delete scenario'), "#{cheatsheet_scenario_path(@cheatsheet, scenario)}?group_id=#{@group&.id}", { method: :delete } %>
-        <%= image_tag 'edit-icon.png', data: { action: "click->edit-scenario#toggle" }, alt: 'edit scenario' %>
+        <%= link_to image_tag("delete-icon.png", alt: 'delete scenario', class: 'c-images-edit__image c-images-edit__image--small'), "#{cheatsheet_scenario_path(@cheatsheet, scenario)}?group_id=#{@group&.id}", { method: :delete } %>
+        <%= image_tag 'edit-icon.png', class: 'c-images-edit__image c-images-edit__image--small', data: { action: "click->edit-scenario#toggle" }, alt: 'edit scenario' %>
       <% end %>
       <%# this form is to edit the scenario %>
       <%= form_with model: scenario, url: "#{cheatsheet_scenario_path(@cheatsheet, scenario)}?group_id=#{@group&.id}",
-        local: true, class: 'e-form e-form-scenario u-padding--24 u--blue u--hidden',
-        data: { 'edit-scenario-target' => "editingScenarioWrapper" } do |form|
+        local: true, class: 'c-form' do |form|
       %>      
         <%= render partial: 'scenarios/edit_scenario', locals: { scenario_form: form } %>
       <% end %>
     </div>
   <% end %>
-</div>
 
-<%# and this is to create a new scenario %>
-<div data-controller='add-scenario' class="o-container u-width--all">
-  <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet, group: @group } %>
-  <%= image_tag 'add-icon.png', class: 'e-image-scenario-add', data: { 
-     action: 'click->add-scenario#toggle'
-    } %>
+  <%# and this is to create a new scenario %>
+  <div data-controller='add-scenario' class="o-grid">
+    <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet, group: @group } %>
+    <%= image_tag 'add-icon.png', class: 'c-images-edit__image c-images-edit__image--small c-image-scenario', data: { 
+      action: "click->add-scenario#toggle"
+      } %>
+  </div>
 </div>
 
 

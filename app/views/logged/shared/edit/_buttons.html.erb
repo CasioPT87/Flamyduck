@@ -1,12 +1,12 @@
 
 <div data-controller="edit-buttons" class="o-grid c-images-edit" >
-  <%= link_to image_tag('edit-icon.png', class: 'c-images-edit__image c-images-edit__image--small'),
+  <%= link_to image_tag('edit-icon.png', class: 'c-images-edit__image c-images-edit__image--small u-position--absolute'),
     locals[:edit_path],
     data: {
      'edit-buttons-target': 'button'
     }, class: 'c-link c-images-edit__image--animation u--padding-left-0_5', id: 'edit'
   %>
-  <%= link_to image_tag('delete-icon.png', class: 'c-images-edit__image c-images-edit__image--small'), 
+  <%= link_to image_tag('delete-icon.png', class: 'c-images-edit__image c-images-edit__image--small u-position--absolute'), 
     locals[:delete_path], method: :delete, data: {
       confirm: "This action can not be undone, are you sure of this?", 'edit-buttons-target': 'button'
     }, class: 'c-link c-images-edit__image--animation', id: 'delete'
@@ -14,6 +14,6 @@
   <%= content_tag :a, content_tag(:div, ""),
    data: { 
      action: 'click->edit-buttons#toggle', 'edit-buttons-target': 'button'
-    }, class: 'c-link c-images-edit__image c-images-edit__image--animation c-link__list--right-arrow', id: 'toggle'
+    }, class: 'c-link c-images-edit__image u-position--absolute c-images-edit__image--animation c-link__list--right-arrow', id: 'toggle'
   %>
 </div>

@@ -3,6 +3,10 @@
   flex-wrap: wrap;
 }
 
+.o-grid--no-wrap {
+  flex-wrap: nowrap;
+}
+
 .o-grid--justify-end {
   justify-content: end;
 }

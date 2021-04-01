@@ -14,7 +14,9 @@ export default class extends Controller {
   }
 
   change = () => {
+    console.log(this.opened)
     if (this.opened) {
+      console.log(this.formTarget)
       this.formTarget.style.display = 'flex';
       window.scrollTo(0,document.body.scrollHeight);
     }

@@ -1,13 +1,15 @@
-<div data-edit-scenario-target="showingScenarioWrapper" class='o-wrapper-scenario u-padding--0'>
-  <div class='o-container-scenario-item'>
-    <p class='e-text-scenario-content'>
+<div data-edit-scenario-target="showingScenarioWrapper" class='o-container o-grid o-grid--no-wrap c-card'>
+  <div class='o-grid o-grid--column c-card__fields u-width--100'>
+    <p class='c-card__field'>
        <%= local_assigns[:scenario].content %>
     </p> 
     <% unless local_assigns[:scenario].example.empty? %>  
-      <%= local_assigns[:scenario].example %>
+      <div class="c-card__field">
+        <%= local_assigns[:scenario].example %>
+      </div>
     <% end %>
   </div>
-  <div class='o-container-scenario-edit-buttons'>
+  <div class='c-card__edit-buttons u-display__none'>
     <%= yield %>
   </div>
 </div>

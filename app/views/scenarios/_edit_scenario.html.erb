@@ -1,6 +1,8 @@
-<%= scenario_form.text_field :content, class: 'e-input u-width--all' %>
-<%= scenario_form.rich_text_area :example %>
-<div class="o-wrapper-scenario-buttons-edit">
-  <%= scenario_form.submit 'Update', class: 'e-button e-button-submit u-margin-rigth-4' %>
-  <button data-action="click->edit-scenario#cancelEditing" } class='e-button e-button-submit u-margin-left-4'>Cancel</button>
+<div data-edit-scenario-target="editingScenarioWrapper" class='o-container o-grid o-grid--column c-card__edit u-display__none'>
+  <%= scenario_form.text_field :content, class: 'c-input' %>
+  <%= scenario_form.rich_text_area :example, class: 'c-input u-margin__bottom--1' %>
+  <div class="o-wrapper-scenario-buttons-edit">
+    <%= scenario_form.submit 'Update', class: 'c-button c-button-submit u-margin__right--1' %>
+    <button data-action="click->edit-scenario#cancelEditing" } class='c-button c-button-submit u-margin__left--1'>Cancel</button>
+  </div>
 </div>

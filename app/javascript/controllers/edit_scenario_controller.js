@@ -21,6 +21,7 @@ export default class extends Controller {
 
   change = () => {
     const parent = this.showingScenarioWrapperTarget.parentElement;
+    console.log(this.editing)
     if (this.editing) {
       parent.setAttribute('draggable', false);
       this.showingScenarioWrapperTarget.style.display = 'none';

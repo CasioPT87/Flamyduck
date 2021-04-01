@@ -1,0 +1,32 @@
+@import 'tools';
+
+.c-card__fields {
+  background-color: $lightest;
+  padding: rythm(1);
+  border-radius: rythm(1);
+}
+
+.c-card, .c-card__edit-buttons {
+  &:hover {
+    .c-card__edit-buttons {
+      display: block;
+    }
+  }
+}
+
+.c-card__field {
+  padding: rythm(1);
+}
+
+.c-card__edit-buttons {
+  position: relative;
+  width: 32px;
+  padding: 8px;
+  flex-direction: column;
+}
+
+.c-card__edit {
+  padding: rythm(2);
+  background: $dark;
+  border-radius: rythm(1);
+}

@@ -4,6 +4,11 @@
 //  generic
 @import 'generic/reset';
 
+// trix
+@import 'trix/dist/trix';
+@import 'actiontext';
+
+
 //  elements -general stuff, general font, color, etc...-
 @import 'elements/page';
 
@@ -22,9 +27,12 @@
 @import 'components/input';
 @import 'components/button';
 @import 'components/list';
+@import 'components/card';
 
 //  utilities -widths, sizes, active- basically anything that you want to lay on top of the component
 @import 'utilities/padding';
 @import 'utilities/margin';
-
+@import 'utilities/width';
+@import 'utilities/left';
+@import 'utilities/display';
 
