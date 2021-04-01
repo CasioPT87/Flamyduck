@@ -3,19 +3,19 @@
 <h1 class="c-text c-text__title">Edit Group</h1>
 
 <%= form_with model: @group, method: :patch, local: true, class: 'c-form' do |form| %>
-  <ol class="c-form_fields">
+  <ol>
     <li class="o-grid o-grid--column c-form_fields__item">
       <%= form.text_field :name, class: 'c-input' %>
     </li>
     <% if @cheatsheets.any? %>
       <h3 class="c-text c-text__title">Select the cheatsheets to be in this group</h3>
       <%= form.collection_check_boxes(:cheatsheet_ids, @cheatsheets, :id, :name) do |b| %>
-        <li class="o-grid c-form_fields__item">
+        <li class="o-grid">
           <%= b.check_box %>
           <%= b.label %>
         </li>
       <% end %>
-      <li class="o-grid o-grid--column c-form_fields__item">
+      <li class="u-margin__top--3">
         <%= form.submit "Update cheatsheets for Group", class: 'c-button c-button-submit' %>
       </li>
     <% else %>
