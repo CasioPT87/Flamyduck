@@ -1,7 +1,16 @@
-<h1 class="e-title">create a new cheatsheet</h1>
-<%= form_with model: @cheatsheet, class: 'e-form e-form-insert' do |form| %>
-  <%= form.text_field :name, class: 'e-input' %>
-  <%= form.submit "Create Cheatsheet", class: 'e-button e-button-submit' %>
+<% content_for :container_classes, 'o-container--narrow' %>
+
+<h1 class="c-text c-text__title">create a new cheatsheet</h1>
+
+<%= form_with model: @cheatsheet, class: 'c-form' do |form| %>
+  <ol class="c-form_fields">
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.text_field :name, placeholder: 'Name for your cheatsheet', class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.submit "Create Cheatsheet", class: 'c-button c-button-submit' %>
+    </li>
+  </ol>
 <% end %>
 
 

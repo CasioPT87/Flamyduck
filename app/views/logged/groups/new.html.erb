@@ -1,8 +1,16 @@
-<h1 class="e-title">create a new group</h1>
+<% content_for :container_classes, 'o-container--narrow' %>
 
-<%= form_with model: @group, class: 'e-form e-form-insert' do |form| %>
-  <%= form.text_field :name, placeholder: 'Name for your group', class: 'e-input' %>
-  <%= form.submit "Create Group", class: 'e-button e-button-submit' %>
+<h1 class="c-text c-text__title">create a new group</h1>
+
+<%= form_with model: @group, class: 'c-form' do |form| %>
+  <ol class="c-form_fields">
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.text_field :name, placeholder: 'Name for your group', class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.submit "Create Group", class: 'c-button c-button-submit' %>
+    </li>
+  </ol>
 <% end %>
 
 

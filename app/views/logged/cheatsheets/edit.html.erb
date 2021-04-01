@@ -1,7 +1,15 @@
-<h1 class="e-title">Edit Cheatsheet</h1>
+<% content_for :container_classes, 'o-container--narrow' %>
 
-<%= form_with model: @cheatsheet, method: :patch, local: true, class: 'e-form e-form-insert' do |form| %>
-  <%= form.text_field :name, class: 'e-input' %>
-  <%= form.submit "Update Cheatsheet", class: 'e-button e-button-submit' %>
+<h1 class="c-text c-text__title">Edit Cheatsheet</h1>
+
+<%= form_with model: @cheatsheet, method: :patch, local: true, class: 'c-form' do |form| %>
+  <ol class="c-form_fields">
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.text_field :name, class: 'c-input' %>
+    </li>
+    <li class="o-grid o-grid--column c-form_fields__item">
+      <%= form.submit "Update Cheatsheet", class: 'c-button c-button-submit' %>
+    </li> 
+  </ol>
 <% end %>
 
