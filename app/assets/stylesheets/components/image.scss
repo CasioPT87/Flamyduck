@@ -6,7 +6,17 @@
 }
 
 .c-images-edit {
+  display: flex;
+  align-items: center;
 
+  .c-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.c-images-edit {
+  margin-left: rythm(1);
 }
 
 .c-images-edit__image {
@@ -15,6 +25,11 @@
   width: rythm(4);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.c-images-edit__image--small {
+  height: rythm(3);
+  width: rythm(3);
 }
 
 .c-images-edit__image--animation {

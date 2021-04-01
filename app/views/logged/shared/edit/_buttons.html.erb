@@ -1,12 +1,12 @@
 
 <div data-controller="edit-buttons" class="o-grid c-images-edit" >
-  <%= link_to image_tag('edit-icon.png', class: 'c-images-edit__image'),
+  <%= link_to image_tag('edit-icon.png', class: 'c-images-edit__image c-images-edit__image--small'),
     locals[:edit_path],
     data: {
      'edit-buttons-target': 'button'
-    }, class: 'c-link c-images-edit__image--animation', id: 'edit'
+    }, class: 'c-link c-images-edit__image--animation u--padding-left-0_5', id: 'edit'
   %>
-  <%= link_to image_tag('delete-icon.png', class: 'c-images-edit__image'), 
+  <%= link_to image_tag('delete-icon.png', class: 'c-images-edit__image c-images-edit__image--small'), 
     locals[:delete_path], method: :delete, data: {
       confirm: "This action can not be undone, are you sure of this?", 'edit-buttons-target': 'button'
     }, class: 'c-link c-images-edit__image--animation', id: 'delete'

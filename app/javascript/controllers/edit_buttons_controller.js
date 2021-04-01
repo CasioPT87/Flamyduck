@@ -16,9 +16,9 @@ export default class extends Controller {
   animate = () => {
     this.buttonTargets.forEach((target, i) => {
       if (this.opened) {
-        target.style.marginLeft = ((i * 40) + 5) + 'px';
+        target.style.marginLeft = (i * 40) + 'px';
       } else {
-        target.style.marginLeft = '5px';
+        target.style.marginLeft = '0px';
       }
     });
     this.changeArrow();
