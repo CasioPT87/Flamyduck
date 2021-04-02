@@ -8,15 +8,16 @@
 .c-images-edit {
   display: flex;
   align-items: center;
+  margin-left: rythm(1);
 
   .c-link {
     display: flex;
     align-items: center;
   }
-}
 
-.c-images-edit {
-  margin-left: rythm(1);
+  .c-images-edit__image--animation {
+    position: absolute;
+  }
 }
 
 .c-images-edit__image {
@@ -24,6 +25,19 @@
   width: rythm(4);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.c-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.c-image__add-scenario {
+  position: fixed;
+  right: rythm(1);
+  height: rythm(8);
+  width: rythm(8);
+  bottom: rythm(1);
 }
 
 .c-images-edit__image--small {

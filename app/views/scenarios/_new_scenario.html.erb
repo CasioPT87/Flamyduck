@@ -1,4 +1,4 @@
-<div data-add-scenario-target='form' class="o-container o-grid o-grid--no-wrap c-card u-display__none">
+<div data-add-scenario-target='form' class="o-container o-grid o-grid--column c-card__edit u-display__none">
   <%= form_with model: [cheatsheet, Scenario.new], local: true, url: "#{cheatsheet_scenarios_path(cheatsheet, Scenario.new)}?group_id=#{group&.id}",
     method: :post, class: 'c-form' do |form|  %>
       <%= form.text_field :content, class: 'c-input', placeholder: 'content for new scenario' %>

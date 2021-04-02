@@ -2,6 +2,8 @@
 
 .c-form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .c-form_fields__item {

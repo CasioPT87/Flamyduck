@@ -1,15 +1,13 @@
 <% content_for :container_classes, 'o-container--narrow' %>
 
 <% if @group %>
-  <nav class='e-nav e-nav-cheatsheet-change'>
-    <ul class='e-unordered-list e-unordered-list-cheatsheet-change'>
-      <% @group.cheatsheets.each do |cheatsheet| %>
-        <li class="e-list-item">
-          <%= link_to cheatsheet.name, [@group, cheatsheet], class: 'e-link e-link-list u-margin-right-8' %>
-        </li>
-      <% end %>
-    </ul>
-  </nav>
+  <ul class='o-grid o-grid--justify-center'>
+    <% @group.cheatsheets.each do |cheatsheet| %>
+      <li class="o-grid o-grid--justify-center">
+        <%= link_to cheatsheet.name, [@group, cheatsheet], class: 'c-link c-link__list c-link__list--short u-margin__right--1 u-margin__top--1' %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
 
 <h1 class="c-text c-text__title"><%= @cheatsheet.name %></h1>
@@ -19,7 +17,7 @@
   <h3 class="c-text c-text__title">Click the 'plus' button at the button to add some</h3>
 <% end %>
 
-<div class="o-grid o-grid--column c-scenarios" data-controller="drag-item"
+<div class="o-grid o-grid--column c-cards" data-controller="drag-item"
   data-action="dragstart->drag-item#dragstart dragover->drag-item#dragover dragenter->drag-item#dragenter dragleave->drag-item#dragleave drop->drag-item#drop dragend->drag-item#dragend"
 >
   <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
@@ -42,7 +40,7 @@
   <%# and this is to create a new scenario %>
   <div data-controller='add-scenario' class="o-grid">
     <%= render partial: 'scenarios/new_scenario', locals: { cheatsheet: @cheatsheet, group: @group } %>
-    <%= image_tag 'add-icon.png', class: 'c-images-edit__image c-images-edit__image--small c-image-scenario', data: { 
+    <%= image_tag 'add-icon.png', class: 'c-images  c-image__add-scenario', data: { 
       action: "click->add-scenario#toggle"
       } %>
   </div>
