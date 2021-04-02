@@ -12,3 +12,14 @@
 .c-text__title {
   padding: rythm(4) rythm(2) rythm(4) rythm(2);
 }
+
+@media only screen and (max-width: 800px) {
+  .c-text__user_name {
+    position: inherit;
+    padding: rythm(2) !important;
+    background-color: $dark;
+    color: $lightest;
+    margin: rythm(2);
+    border: rythm(0.2) solid $lightest;
+  }
+}

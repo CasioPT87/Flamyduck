@@ -6,7 +6,8 @@
   bottom: 0;
   height: rythm(7);
   width: 95%;
-  max-width: rythm(50);
+  width: rythm(50);
+  max-width: 80%;
   right: 0;
   left: 0;  
   justify-content: center;
@@ -15,6 +16,7 @@
   justify-self: center;
   margin: auto;
   margin-bottom: rythm(2);
+  padding: rythm(2);
   border-radius: rythm(1);
   color: $lightest;
 }

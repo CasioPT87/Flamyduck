@@ -55,3 +55,16 @@
   transition-property: margin-left;
   transition-duration: 0.5s;
 }
+
+@media only screen and (max-width: 600px) {
+  .c-images-edit {
+    .c-images-edit__image--animation {
+      position: relative;
+      margin: rythm(1);
+    }
+
+    .c-link__list--right-arrow, .c-link__list--left-arrow {
+      display: none;
+    }
+  }
+}
