@@ -22,7 +22,7 @@
 >
   <% @cheatsheet.sorted_scenarios.each_with_index do |scenario, index| %>
 
-    <div class="o-grid" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
+    <div class="o-grid u-border-radius--2" data-controller="edit-scenario" draggable="true" data-scenario-id="<%= scenario.id %>" data-drag-item-target="scenario">
       <%# this shows the scenario %>
       <%= render 'scenarios/scenario', scenario: scenario do %>
         <%= link_to image_tag("delete-icon.png", alt: 'delete scenario', class: 'c-images-edit__image c-images-edit__image--small'), "#{cheatsheet_scenario_path(@cheatsheet, scenario)}?group_id=#{@group&.id}", { method: :delete } %>

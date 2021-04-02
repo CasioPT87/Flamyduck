@@ -22,7 +22,7 @@ export default class extends Controller {
   dragover(event) {
     event.preventDefault();
     const dragElement = event.target;
-    this.dropElement = dragElement.closest(".o-grid");
+    this.dropElement = dragElement.closest("div[draggable=true]");
     if (this.dropElement) {
       this.addOnHoverStyles(this.dropElement);
       return true;
@@ -37,7 +37,7 @@ export default class extends Controller {
 
   dragleave(event) {
     event.preventDefault();
-    const leftElement = event.target.closest(".o-grid");
+    const leftElement = event.target.closest("div[draggable=true]");
     this.removeOnHoverStyles(leftElement);
   }
 
@@ -79,10 +79,10 @@ export default class extends Controller {
   }
   
   addOnHoverStyles = (element) => {
-    element.firstElementChild.style.boxShadow = '5px 5px 15px 5px #000000';
+    element.style.boxShadow = '5px 5px 15px 5px #000000';
   }
 
   removeOnHoverStyles = (element) => {
-    element.firstElementChild.style.boxShadow = 'none';
+    element.style.boxShadow = 'none';
   }
 }
