@@ -27,14 +27,15 @@ RSpec.describe "logged/cheatsheets/index.html.erb", type: :view do
     end
   end
 
-  context "Click 'delete' button" do
+  context "Click 'delete' button", js: true do
 
     it "deletes cheatsheet from page" do
       visit '/cheatsheets'
-      docker_compose_cheatsheet_row = first('.o-wrapper-cheatsheets')
-      within(docker_compose_cheatsheet_row) do
-        click_link('delete')
-      end
+      
+      first('#toggle').click
+      first('#delete').click
+
+      page.accept_alert
       
       expect(page).not_to have_selector('a', text: 'docker-compose')
       expect(page).to have_selector('a', text: 'docker')
@@ -45,7 +46,9 @@ RSpec.describe "logged/cheatsheets/index.html.erb", type: :view do
 
     it "directs to edit cheatsheet page" do
       visit '/cheatsheets'
-      docker_compose_cheatsheet_row = first('.o-wrapper-cheatsheets')
+      
+      first('#toggle').click
+      docker_compose_cheatsheet_row = first('.c-list-items__item')
       within(docker_compose_cheatsheet_row) do
         click_link('edit')
       end

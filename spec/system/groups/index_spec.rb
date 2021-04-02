@@ -47,7 +47,7 @@ RSpec.describe "logged/groups/index.html.erb", type: :view do
 
     it "directs to edit cheatsheet page" do
       visit '/groups'
-      docker_group_row = first('.o-wrapper-groups')
+      docker_group_row = first('.c-list-items__item')
       within(docker_group_row) do
         click_link('edit')
       end

@@ -81,7 +81,7 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
     it "adds scenario at the bottom of the list" do
       visit "/cheatsheets/#{subject.id}"
 
-      all_scenarios = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      all_scenarios = all('.c-card')
       expect(all_scenarios.count).to be(2)
 
       first_scenario = scenarios(:bash)
@@ -90,11 +90,11 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
       subject.order_scenarios = "#{first_scenario.id},#{second_scenario.id}"
       subject.save
 
-      add_button = find('.e-image-scenario-add').click
+      add_button = find('.c-image__add-scenario').click
       fill_in('content for new scenario', with: 'whatever content for the scenario')
       click_button 'Create'
 
-      all_scenarios = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      all_scenarios = all('.c-card')
       expect(all_scenarios.count).to be(3)
 
       scenario_created = subject.scenarios.last
@@ -109,17 +109,17 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
     it "removes scenario from list", js: true do
       visit "/cheatsheets/#{subject.id}"
 
-      all_scenarios_beginning = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      all_scenarios_beginning = all('.c-card')
       expect(all_scenarios_beginning.count).to be(2)
 
-      first_row = first('.o-wrapper-scenario')
+      first_row = first('.c-card')
       first_row.hover
 
       within(first_row) {
         click_on('delete scenario')
       }
 
-      all_scenarios_end = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      all_scenarios_end = all('.c-card')
       expect(all_scenarios_end.count).to be(1)    
     end
   end
@@ -129,7 +129,7 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
     it "changes scenario", js: true do
       visit "/cheatsheets/#{subject.id}"
 
-      first_row = first('.o-wrapper-scenario')
+      first_row = first('.c-card')
       first_row.hover
 
       within(first_row) {
@@ -141,7 +141,7 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
 
       edited_scenario = find('p', text: 'this is new content')
 
-      all_scenarios_end = all('.o-container-scenario-droppable .o-wrapper-scenario')
+      all_scenarios_end = all('.c-card')
       expect(!!edited_scenario).to be(true)
     end
 
@@ -149,7 +149,7 @@ RSpec.describe "logged/cheatsheets/show.html.erb", type: :view do
       group = groups(:docker)
       visit "/groups/#{group.id}/cheatsheets/#{subject.id}"
 
-      first_row = first('.o-wrapper-scenario')
+      first_row = first('.c-card')
       first_row.hover
 
       within(first_row) {
