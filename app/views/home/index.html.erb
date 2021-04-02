@@ -1,11 +1,11 @@
 <% content_for :container_classes, 'o-container--narrow' %>
 
-<div class="o-grid o-grid--justify-center">
+<div class="o-grid o-grid--column o-grid--align-center o-grid--justify-center">
   <h1 class="c-text c-text__title">Memory is overrated</h1>
   <% if !logged_in? %>
     <h4 class="c-text__title">Log in if you have an account already or Sign up if you are new around here</h4>
   <% end %>
 
-  <%= image_tag 'logo.png', class: 'u-image--logo-home' %>
+  <%= image_tag 'logo.png', class: 'c-image__logo--big' %>
 </div>
 

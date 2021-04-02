@@ -2,7 +2,13 @@
 
 .c-image__logo {
   height: rythm(10);
-  width: rythm(9);
+  width: rythm(8);
+}
+
+.c-image__logo--big {
+  height: rythm(30);
+  width: rythm(24);
+  margin-top: rythm(2);
 }
 
 .c-images-edit {
