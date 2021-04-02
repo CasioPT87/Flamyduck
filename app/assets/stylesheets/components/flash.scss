@@ -1,6 +1,6 @@
 @import 'tools';
 
-.e-flash {
+.c-flash {
   position: fixed;
   display: flex;
   bottom: 0;
@@ -16,6 +16,13 @@
   margin: auto;
   margin-bottom: rythm(2);
   border-radius: rythm(1);
-  background-color: $success;
   color: $lightest;
+}
+
+.c-flash--notice {
+  background-color: $success;
+}
+
+.c-flash--alert {
+  background-color: $fail;
 }
